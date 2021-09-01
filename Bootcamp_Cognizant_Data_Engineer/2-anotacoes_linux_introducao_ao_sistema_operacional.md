@@ -139,3 +139,39 @@
   - procura o arquivo dentro de um determinado lugar
   - Exemplo: find ~ -name maio.txt -> Procura na pasta pessoal ~ pelo nome o arquivo maio.txt
 
+### 4-Diretórios do Linux e comandos de sistema
+
+- Diretórios
+  - ![image-20210901161434254](C:\Users\Micael\AppData\Roaming\Typora\typora-user-images\image-20210901161434254.png)
+- Binários
+  - São os executáveis do Linux
+- root
+  - É o super usuário do sistema
+- cpuinfo ou lscpu
+  - Exibe as informações de processador
+- meminfo
+  - Exibe as informações de memória do sistema
+- free
+  - Exibe os status de memória
+    - SWAP: memória virtual do sistema
+- lspci
+  - Exibe todos as placas conectadas no computador
+- lsusb
+  - Exibe todos os equipamentos que estão conectados por USB
+- arch
+  - Exibe a arquitetura do kernel do sistema
+- uname
+  - Exibe o nome do Kernel
+- uname -r
+  - Exibe a versão do kernel
+- du -h "diretório"
+  - Exibe o quanto do diretório ocupa de HD
+  - Exemplo: du -h ~ -> exibe quanto o diretório pessoal ocupa do HD
+- cat /etc/passwd
+  - Exibe todos os usuário do sistema
+- reboot
+  - Reinicia o sistema
+- shutdown -h "tempo"
+  - Desliga o sistema
+- lshw
+  - Lista de todos os hardwares
