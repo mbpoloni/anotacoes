@@ -82,4 +82,60 @@
   - sai do terminal
 - Revisão de comandos
   - ![image-20210901104339264](C:\Users\Micael\AppData\Roaming\Typora\typora-user-images\image-20210901104339264.png)
-- 
+
+### 3-Comandos para manipulação de arquivos e textos e redirecionamento
+
+- nano
+  - editor de texto em terminal do ubuntu linux
+- ^
+  - é o CTRL
+- M
+  - é o ALT
+- CTRL + O
+  - Salva o arquivo
+- CTRL + X
+  - Sai do nano
+- cat "nome do arquivo"
+  - Abre o conteudo do arquivo no terminal
+- tac "nome do arquivo"
+  - Abre o conteúdo com as linhas invertidas no terminal
+- head "nome do arquivo"
+  - Exibe as primeiras 10 linhas do arquivo
+- tail "nome do arquivo"
+  - Exibe as ultimas 10 linhas do arquivo
+- ">"
+  - Cria um arquivo contendo as informações
+  - Exemplo: tail teste.txt > distros.txt
+- cal
+  - Exibe o calendário do mês corrente no terminal
+- cal "Ano"
+  - Exibe os calendários do ano no terminal
+- date
+  - Exibe a data de hoje
+- ">>"
+  - Adiciona o conteúdo ao arquivo
+  - Exemplo: date >> calendario_jul.txt
+- grep
+  - Realiza busca dentro do arquivo
+- "| "
+  - Possibilita concatenar comandos no terminal
+  - Exemplo: tail distros.txt | grep linux -> Realiza a busca da palavra linux nas ultimas dez linha do arquivo distros.txt
+- "|" more
+  - Realiza uma paginação na exibição do conteudo, ao pressionar ENTER
+- "|" less
+  - Realiza uma paginação na exibição do conteudo, ao pressionar ENTER
+- "&"
+  - Separa por linha de comando o resultado
+  - Exemplo: cat teste.txt & cat teste2.txt
+- "&&"
+  - Executa os comandos em consecutivo, sem pausa entre linhas de comando
+  - Exemplo: mkdir linux_ubutu && cd linux_ubuntu -> cria a pasta "linux_ubuntu" e navega até ela
+- file
+  - demonstra qual é o tipo de arquivo
+- whatis
+  - exibe o que realiza o comando
+  - Exemplo: whatis file
+- find
+  - procura o arquivo dentro de um determinado lugar
+  - Exemplo: find ~ -name maio.txt -> Procura na pasta pessoal ~ pelo nome o arquivo maio.txt
+
