@@ -11,6 +11,75 @@
 - Ubuntu-sistema operacional de código aberto que é desenvolvido pela Canonical com base no kernel linux, tem base no Debian.
 - VMware Worksation 15
 - Ubuntu v.20.4
-- Doca é a barra de tarefas ao lado esquerdo
+- Doca é a barra de tarefas ao lado esquerdo, parecida com o gerenciador de tarefas do windows
 - A pasta raíz é a barra
+- Ubuntu software
+  - Loja de aplicações linux
 
+### 2-Conhecendo o terminal Linux e seus atalhos
+
+- Terminal, shell ou konsole
+  - podemos executar programas específicos Linux
+  - uso para automação de processos através de comandos
+  - pode ser aberto por CTRL + ALT + T
+- Os comandos são iguais em diversas distribuições
+- ~ significa que está na pasta usuário, pasta de trabalho
+- pwd
+  - exibe o caminho local
+- ls
+  - listagem de arquivos e diretórios
+- ls "Nome da pasta"
+  - lista os arquivos que existe dento da pasta especificada
+- ls -l
+  - lista os itens com detalhes (restrições, usuário, tamanho, mes de criação, data de criação, hora de criação)
+- cd "Nome da pasta"
+  - Troca o diretório para a pasta especificada
+- mkdir "Nome da pasta"
+  - cria pasta
+- cd ..
+  - volta para o diretório anterior
+- cd /
+  - redireciona para o diretório raiz, c:
+- man "comando"
+  - retorna o manual do comando, exemplo: man ls
+  - para retornar ao terminal, pressionar "q"
+- "comando" --help
+  - retorna o manual com comando em portugues na maioria das vezes
+  - para retornar ao terminal, pressionar "q"
+- cd ~
+  - voltar para o diretório pessoal
+- history
+  - exibe o histórico de comandos do terminal
+- !!
+  - executa o ultimo comando do terminal
+- Atalhos
+  - ![image-20210901102719495](C:\Users\Micael\AppData\Roaming\Typora\typora-user-images\image-20210901102719495.png)
+- mv "Caminho"
+  - Move o arquivo
+    - mv "Nome inicial do arquivo" "Nome futuro" 
+    - mv Teste Linux
+  - Renomea o arquivo
+    - mv "Nome inicial do arquivo" "Caminho futuro" 
+    - mv Linux ~ 
+- touch
+  - cria arquivos vazios sem conteúdo
+    - touch teste.txt
+- cp
+  - copia o arquivo
+    - cp "nome do arquivo" "caminho"
+    - cp linux.txt /home/bruno
+- Tab
+  - autocompleta
+- clear ou CTRL+L
+  - limpa o terminal
+- rmdir
+  - remove o diretório
+  - rmdir Linux
+- rm
+  - remove arquivos
+  - rm Teste.txt
+- exit ou CTRL + D
+  - sai do terminal
+- Revisão de comandos
+  - ![image-20210901104339264](C:\Users\Micael\AppData\Roaming\Typora\typora-user-images\image-20210901104339264.png)
+- 

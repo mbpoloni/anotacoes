@@ -96,7 +96,7 @@
 - Exibir a lista de repositórios cadastrados
   - git remote -v
 - Empurrar arquivos do diretório local para o repositório
-  - git push origin mater
+  - git push origin master
 
 ### 7-Resolvendo conflitos
 
