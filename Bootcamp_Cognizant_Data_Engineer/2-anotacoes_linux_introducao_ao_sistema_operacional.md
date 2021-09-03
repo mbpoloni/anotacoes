@@ -28,6 +28,8 @@
   - exibe o caminho local
 - ls
   - listagem de arquivos e diretórios
+- la -a
+  - mostras os arquivos e diretórios em oculto
 - ls "Nome da pasta"
   - lista os arquivos que existe dento da pasta especificada
 - ls -l
@@ -50,6 +52,7 @@
   - voltar para o diretório pessoal
 - history
   - exibe o histórico de comandos do terminal
+  - comando -c: limpa o histórico
 - !!
   - executa o ultimo comando do terminal
 - Atalhos
@@ -175,3 +178,107 @@
   - Desliga o sistema
 - lshw
   - Lista de todos os hardwares
+
+### 5-Fundamentos de rede e comandos de rede
+
+- Rede
+  - conjunto de equipamentos interligados para trocar informações e compartilhar recursos
+- Nós
+  - São os pontos de rede
+- WAN (Wide Area Network)
+  - uma rede geograficamente distribuída, liga continentes
+- MAN (Metropolitan Area Network)
+  - rede metropolitana
+- LAN (Local Area Netowork)
+  - rede local em um unico local (prédio, campus)
+- Protocolos
+  - linguagem usada pelos dispositivos de uma rede para que eles consigam se entender
+  - IP (Internet protocol)
+    - numeros que identificam o dispositivo em uma rede
+  - ICMP (Internet Control Message Protocol)
+    - prover mensagens de controle na comunicação entre nós
+  - DNS (Domain Name Server)
+    - protocolo de aplicação, identificar endereços IP´s, manter uma tabela com os endereços dos caminhos de algumas redes
+- Interface de rede
+  - software ou hardware que faz a comunicação em uma rede de computadores
+- Loopback
+  - interface que permite fazer conexões com você mesmo
+- ifconfig (pacote net tools)
+  - exibe as informações de ip
+- sudo
+  - faz elevação de priviégio para administrador
+- inet
+  - endereço na rede local
+- netmask
+  - número 32 bits, que separa a rede publica da rede privada
+- broadcast
+  - endereço publico da rede local
+- inet6
+  - surgiu pela quantidade de computadores que existem no mundo
+- ehter
+  - endereço MAC, endereço da placa de rede, único
+- hostname
+  - tras informações sobre o host
+- hostname -I
+  - endereço IP
+- hostname -I
+  - endereço de loopback
+- who
+  - como está logado na rede
+- whoami
+  - nome do usuário logado na rede
+- ping
+  - faz parte do protocolo ICMP
+  - verifica se o host está ativo, enviando pacotes de requisições para o host
+- dig
+  - tras informações do DNS
+  - +short: trás somente a informação de IP do host
+
+- DNS
+  - serviço de domínio de nomes
+- tracerout
+  - retorna a rota de nós até chegar em determinado host
+- whois
+  - trás mais informações sobre determinado host
+- finger
+  - mostra toda a informação do usuário logado no host
+
+### 6-Fuçando no Linux com comandos diversos
+
+- alias
+  - determina um apelido ao um comando
+  - exemplo: alias hh='history'
+- nl
+  - conta o numero de linhas de um arquivo
+- wc -l
+  - conta o numero de linhas de um arquivo, considerando as linhas em branco
+  - exemplo: wc -l nome.txt
+- wc -w
+  - conta o numero de palavras de um arquivo
+  - exemplo: wc -w nome.txt
+- cmp
+  - faz comparação entre arquivos
+- diff
+  - mostra a diferença entre os arquivos
+- sort
+  - organiza a saida do conteúdo do arquivo no terminal
+- last reboot
+  - todas as informações de reinicialização do sistema
+- route
+  - mostrará todas as tabelas de roteamento do Kernel
+- time
+  - calcula o tempo do processo do comando
+  - exemplo: time traceroute www.google.com.br
+
+- uptime
+  - tempo que o sistema está rodando
+- init 0
+  - desliga a maquina
+- telinit 0
+  - desliga a maquina
+- seq
+  - imprimi a sequencia de caracteres
+  - exemplo: seq 1 10
+- Comandos
+  - ![image-20210903140834343](C:\Users\Micael\AppData\Roaming\Typora\typora-user-images\image-20210903140834343.png)
+
