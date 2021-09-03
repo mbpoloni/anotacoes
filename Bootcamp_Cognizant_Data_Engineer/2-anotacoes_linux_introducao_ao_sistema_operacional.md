@@ -371,5 +371,108 @@
 
   - ![image-20210903145450763](C:\Users\Micael\AppData\Roaming\Typora\typora-user-images\image-20210903145450763.png)
 
-  
+  ### 8-Compactação, descompactação e arquivamento
+
+- gzip
+
+  - compacta um arquivo
+  - -9 compactação máxima
+  - exemplo: gzip nomearquivo.txt
+
+- gunzip
+
+  - descompacta o arquivo
+  - exemplo: gunzip nomearquivo.txt.gz
+
+- zip
+
+  - exemplo: zip nomedoarquivo.zip nomearquivocompactar.txt
+
+- unzip
+
+  - exemplo: unzip arquivo.zip
+
+- bzip2
+
+  - mais atual que os outros
+  - exemplo: bzip2 nomearquivo.txt
+
+- bzip2 -d
+
+  - descompacta arquivo
+  - exemplo: bzip2 -d arquivo.bz2
+
+- rar a
+
+  - exemplo: rar a arquivo.rar nomearquivo.txt
+
+- rar z
+
+  - descompacta arquivo
+  - exemplo: rar x arquivo.rar
+
+- Arquivadores
+
+  - Junta varios arquivos em um só, pode ser usado em conjunto com compactadores
+
+- tar -cf
+
+  - exemplo: tar -cf arquivos.tar arquivo1.txt arquivo2.txt arquivo3.txt
+
+- tar -xvf
+
+  - exemplo mesmo diretório: tar -xvf arquivos.tar.gz
+  - exemplo outro diretório: tar -xvf arquivos.tar.gz -C ~/Documentos
+
+  ### 9-Gerenciamento de pacotes
+
+- Pacotes
+
+  - são programas dentro de um arquivo identificados por sua extensão, e incluem arquivos necessário para a instalação de programa
+  - .deb, .rpm
+
+- Gerenciadores de pacotes
+
+  - são sistemas que possuem resolução automática de dependências entre pacotes, metrodo fácil de instalação de pacotes
+  - dpkg, apt, yurn
+
+- APT
+
+  - sudo apt install
+    - instala
+  - sudo apt upgrade
+    - atualiza
+  - sudo apt remove
+    - remove pacote
+  - sudo apt update && apt upgrage
+    - atualiza o sistema
+  - dpkg
+    - outro gerenciador de pacotes do tipo .deb
+    - sudo dpkg -i nomearquivo.deb
+      - instala
+    - sudo dpkg -i nomearquivo.deb
+      - descrição do pacote
+    - sudo dpkg -r nomearquivo
+      - remove o pacote, sem .deb, descrição que consta na descrição Package
+
+- RPM
+
+  - sudo rpm -IVH nomearquivo.rpm
+    - instala
+    - --nodeps ,instala as dependencias
+  - sudo rpm -U nomearquivo.rpm
+    - atualiza
+  - sudo rpm -e nomearquivo.rpm
+    - remove
+
+- YUM
+
+  - sudo yum install pacote
+    - instala o pacote
+  - sudo yum update pacote
+    - atualiza o pacote
+  - sudo youm remove pacote
+    - remove o pacote
+
+
 
