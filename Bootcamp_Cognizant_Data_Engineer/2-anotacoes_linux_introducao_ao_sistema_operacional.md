@@ -282,3 +282,94 @@
 - Comandos
   - ![image-20210903140834343](C:\Users\Micael\AppData\Roaming\Typora\typora-user-images\image-20210903140834343.png)
 
+### 7-Controle de usuários, grupos e permissões
+
+- root
+
+  - é o usuário que possui todas as permissões no Linux
+
+- adduser
+
+  - adiciona um usuário
+  - exemplo: adduser nomedousuario
+
+- su
+
+  - troca o usuario do terminal
+  - exemplo: su novousuario
+
+- passwd
+
+  - altera a senha do usuário
+  - exemplo: passwd nomeusuario
+  - cat etc/paswwd : exibe todos os usuários
+
+- last
+
+  - exibe as informações de login dos usuarios de todo o sistema
+
+- logname
+
+  - exibe o nome do usuário atual do sistema
+
+- id
+
+  - exibe todos os identificadores dos usuarios
+
+- userdel -r 
+
+  - remove o usuário
+  - -r remove a pasta pessoal
+
+- Grupos
+
+  - permitem orgainzar os usuários e definir as permissões de acesso a arquivos.
+  - cat /etc/group
+    - exibe todos os grupos do sistema
+
+- groups
+
+  - exibe todos os grupos de um usuário
+
+- adadgroup
+
+  - cria um grupo
+
+- adduser
+
+  - adiciona um usuário ao grupo
+  - exemplo: adduser nomeusuario nomegrupo
+
+- gpasswd -a
+
+  - adiciona um usuário ao grupo
+  - exemplo: gpasswd -a nomeusuario nomegrupo
+
+- gpasswd -a
+
+  - remove um usuário de um grupo
+
+- Permissões
+
+  - servem para restringir acessos de leitura, escrita e execução em arquivos e diretórios
+  - r-read
+  - w-write
+  - x-execution
+
+- ls -lh
+
+  - mostra detalhes
+  - d rwx rwx rwx - primeira sequencia é o dono, segunda sequencia quem pertence ao grupo e terceira sequencia os outros
+    - ![image-20210903145150407](C:\Users\Micael\AppData\Roaming\Typora\typora-user-images\image-20210903145150407.png)
+
+- chmod
+
+  - muda permissão de um arquivo ou diretório
+  - exemplo: chmod 700 nomedoarquivo.txt
+
+- Modo octal
+
+  - ![image-20210903145450763](C:\Users\Micael\AppData\Roaming\Typora\typora-user-images\image-20210903145450763.png)
+
+  
+
