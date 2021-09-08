@@ -1,0 +1,59 @@
+# Anotações Shell Script
+
+### 1-Introdução e alguns comandos com Shell Script
+
+- Shell- interface para acessar serviços de um SO
+- Script- linguagem de programação que executa no sistema em tempo de execução
+- cd
+  - acronimo de change directory
+  - cd / - raiz do sistema
+  - cd ~ - diretório do usuário corrente
+  - cd .. - voltar diretório
+- ls
+  - listar arquivos
+  - ls l - lista em coluna detalhada
+  - ls a - lista arquivos ocultos
+  - ls s - lista com tamanho alocado de cada arquivo, em bloco
+- touch
+  - criar arquivos vazios ou alterar data e hora do arquivo
+  - touch -a - altera hora de acesso
+  - touch -m - altera hora de modificação
+  - touch -c - altera hora de acesso sem criar um novo arquivo
+  - touch -t - define hora específica de acesso e modificação
+- cat
+  - visualizar conteúdo de arquivo
+  - acrônimo de concatenar
+- mv
+  - mover e renomeia arquivos e diretórios
+  - -i - confirme antes de substituir
+  - -n sem substituição
+  - -b substituindo pelo backup
+  - -u substitui se o arquivo de destino for antigo ou não existir
+- cp
+  - copiar arquivos
+  - sem -i - sem confirmação
+  - sem -v - sem saída do processo no terminal
+- mkdir
+  - cria diretorio
+- rm
+  - remover arquivos
+  - -f - remove sem perguntar
+- find
+  - procurar arquivos
+  - . - pesquisa tudo no diretório e nas subpastas
+  - ./ -type f - name "o" - pesquisa todos os arquivos (f) na pasta atual e subpastas em que o nome contem "o"
+  - ./ -type d - name meu*" - pesquisa todos os diretorios (d) na pasta atual e subpastas em que o nome contem "meu"
+  - type f - arquivo oculto
+- diff
+  - compara diferença entre arquivos
+  - se os arquivos forem idênticos, não será mostrado nada no terminal
+-  rmdir ou rm -rf
+  - remove diretório vazio rmdir
+  - remove diretório não vazio rm -rf
+- env
+  - variáveis de ambiente
+  - PS1: prompt da linha de comando
+  - HOME: diretório "/home" de um usuário
+  - PATH: lista de diretórios vasculhados quando um comando é executado
+  - 
+
