@@ -102,7 +102,7 @@
 
     - Comunicação de funcionalidade através de chamada de código no sistema
 
-    - ![image-20210908164911545](C:\Users\Micael\AppData\Roaming\Typora\typora-user-images\image-20210908164911545.png)
+    - ![image-20210908164911545](C:\workspace\anotacoes_aulas\img\image-20210908164911545.png)
 
     - Proxy faz o gerenciamento e a distribuição da demanda entre as instancias
 
@@ -117,7 +117,7 @@
 
   - Microserviços 1
 
-    - ![image-20210908165124168](C:\Users\Micael\AppData\Roaming\Typora\typora-user-images\image-20210908165124168.png)
+    - ![image-20210908165124168](C:\workspace\anotacoes_aulas\img\image-20210908165124168.png)
 
     - Um serviço para cada operação da aplicação
 
@@ -137,7 +137,7 @@
 
   - Microserviços 2
 
-    - ![image-20210908170029100](C:\Users\Micael\AppData\Roaming\Typora\typora-user-images\image-20210908170029100.png)
+    - ![image-20210908170029100](C:\workspace\anotacoes_aulas\img\image-20210908170029100.png)
     - Contém um Message Broker, cria um independência entre serviços e um buffer caso algum serviço não esteja disponível
     - Vantagens
       - Fácil atualização de serviços, sem a parada do sistema
@@ -159,7 +159,7 @@
 
   - Microserviços 3
 
-    - ![image-20210908170558585](C:\Users\Micael\AppData\Roaming\Typora\typora-user-images\image-20210908170558585.png)
+    - ![image-20210908170558585](C:\workspace\anotacoes_aulas\img\image-20210908170558585.png)
 
     - Pipeline
 
@@ -241,7 +241,7 @@
 
         - As things entregam as informações para o Broker que entrega a mensagem para os clientes que estão escritos.
 
-        - ![image-20210909101707582](C:\Users\Micael\AppData\Roaming\Typora\typora-user-images\image-20210909101707582.png)
+        - ![image-20210909101707582](C:\workspace\anotacoes_aulas\img\image-20210909101707582.png)
 
         - Publish
 
@@ -281,7 +281,7 @@
 
           - Maior número de devices conectados e transmitindo dados na infraestrutura
           - TB´s ou PB´s de informações
-          - ![image-20210909104314190](C:\Users\Micael\AppData\Roaming\Typora\typora-user-images\image-20210909104314190.png)
+          - ![image-20210909104314190](C:\workspace\anotacoes_aulas\img\image-20210909104314190.png)
             - Worker: subscribe no tópico do broker
             - Data store: armazena as informações
             - Cache: As informações mais relevantes para o final
@@ -309,9 +309,9 @@
 
   - IOT na Prática
 
-    - ![image-20210909111356155](C:\Users\Micael\AppData\Roaming\Typora\typora-user-images\image-20210909111356155.png)
-    - ![image-20210909111412093](C:\Users\Micael\AppData\Roaming\Typora\typora-user-images\image-20210909111412093.png)
-    - ![image-20210909111857723](C:\Users\Micael\AppData\Roaming\Typora\typora-user-images\image-20210909111857723.png)
+    - ![image-20210909111356155](C:\workspace\anotacoes_aulas\img\image-20210909111356155.png)
+    - ![image-20210909111412093](C:\workspace\anotacoes_aulas\img\image-20210909111412093.png)
+    - ![image-20210909111857723](C:\workspace\anotacoes_aulas\img\image-20210909111857723.png)
     - Modelo cliente servidor
       - Cliente->Request->Servidor
       - Servidor->Resposta->Cliente
