@@ -92,90 +92,227 @@
     - 4XX: Erro do cliente
     - 5XX: Erro do servidor
 
-    ### Conceitos de arquitetura em aplicações para internet
+### 2-Conceitos de arquitetura em aplicações para internet
 
-  - Tipos de arquitetura
+- Tipos de arquitetura
 
-    - Monolito
+  - Monolito
 
-      - Uma aplicação distribuída em mais instancias
+    - Uma aplicação distribuída em mais instancias
 
-      - Comunicação de funcionalidade através de chamada de código no sistema
+    - Comunicação de funcionalidade através de chamada de código no sistema
 
-      - ![image-20210908164911545](C:\Users\Micael\AppData\Roaming\Typora\typora-user-images\image-20210908164911545.png)
+    - ![image-20210908164911545](C:\Users\Micael\AppData\Roaming\Typora\typora-user-images\image-20210908164911545.png)
 
-      - Proxy faz o gerenciamento e a distribuição da demanda entre as instancias
+    - Proxy faz o gerenciamento e a distribuição da demanda entre as instancias
 
-        | Prós                       | Contas                                   |
-        | -------------------------- | ---------------------------------------- |
-        | Baixa complexidade         | Stack única                              |
-        | Monitoramento simplificado | Compartilhamento de recurso              |
-        |                            | Acoplamento (comunicação entre serviços) |
-        |                            | Mais complexo a escalabilidade           |
+      | Prós                       | Contas                                   |
+      | -------------------------- | ---------------------------------------- |
+      | Baixa complexidade         | Stack única                              |
+      | Monitoramento simplificado | Compartilhamento de recurso              |
+      |                            | Acoplamento (comunicação entre serviços) |
+      |                            | Mais complexo a escalabilidade           |
 
-        
+      
 
-    - Microserviços 1
+  - Microserviços 1
 
-      - ![image-20210908165124168](C:\Users\Micael\AppData\Roaming\Typora\typora-user-images\image-20210908165124168.png)
+    - ![image-20210908165124168](C:\Users\Micael\AppData\Roaming\Typora\typora-user-images\image-20210908165124168.png)
 
-      - Um serviço para cada operação da aplicação
+    - Um serviço para cada operação da aplicação
 
-      - Proxy faz o gerenciamento conforme o tipo de serviço solicitado pelo cliente
+    - Proxy faz o gerenciamento conforme o tipo de serviço solicitado pelo cliente
 
-      - Serviço 3 é um serviço interno
+    - Serviço 3 é um serviço interno
 
-      - Pode tornar uma arquitetura caótica conforme o aumento de comunicação entre serviços
+    - Pode tornar uma arquitetura caótica conforme o aumento de comunicação entre serviços
 
-        | Prós                   | Contras                                  |
-        | ---------------------- | ---------------------------------------- |
-        | Stack dinâmica         | Acoplamento (comunicação entre serviços) |
-        | Simples escalabilidade | Monitoramento mais complexo              |
-        |                        | Provisionamento mais complexo            |
+      | Prós                   | Contras                                  |
+      | ---------------------- | ---------------------------------------- |
+      | Stack dinâmica         | Acoplamento (comunicação entre serviços) |
+      | Simples escalabilidade | Monitoramento mais complexo              |
+      |                        | Provisionamento mais complexo            |
 
-        
+      
 
-    - Microserviços 2
+  - Microserviços 2
 
-      - ![image-20210908170029100](C:\Users\Micael\AppData\Roaming\Typora\typora-user-images\image-20210908170029100.png)
-      - Contém um Message Broker, cria um independência entre serviços e um buffer caso algum serviço não esteja disponível
-      - Vantagens
-        - Fácil atualização de serviços, sem a parada do sistema
-        - Com o message broker, proporciona um buffer, e assim que o serviço voltar a funcionar ele processa os trabalhos antigos
-      - Desvantagens
-        - A plataforma inteira fica refém do Message broker
+    - ![image-20210908170029100](C:\Users\Micael\AppData\Roaming\Typora\typora-user-images\image-20210908170029100.png)
+    - Contém um Message Broker, cria um independência entre serviços e um buffer caso algum serviço não esteja disponível
+    - Vantagens
+      - Fácil atualização de serviços, sem a parada do sistema
+      - Com o message broker, proporciona um buffer, e assim que o serviço voltar a funcionar ele processa os trabalhos antigos
+    - Desvantagens
+      - A plataforma inteira fica refém do Message broker
 
-      | Prós                   | Contras                       |
-      | ---------------------- | ----------------------------- |
-      | Stack dinâmica         | Monitoramento mais complexo   |
-      | Simples escalabilidade | Provisionamento mais complexo |
-      | Desacoplamento         |                               |
+    | Prós                   | Contras                       |
+    | ---------------------- | ----------------------------- |
+    | Stack dinâmica         | Monitoramento mais complexo   |
+    | Simples escalabilidade | Provisionamento mais complexo |
+    | Desacoplamento         |                               |
 
-      - Mais complexo no gerenciamento de erros
-        - Solução
-          - Dead letter queue
-          - Filas de re-tentativas
-      - 
+    - Mais complexo no gerenciamento de erros
+      - Solução
+        - Dead letter queue
+        - Filas de re-tentativas
+    - 
 
-    - Microserviços 3
+  - Microserviços 3
 
-      - ![image-20210908170558585](C:\Users\Micael\AppData\Roaming\Typora\typora-user-images\image-20210908170558585.png)
+    - ![image-20210908170558585](C:\Users\Micael\AppData\Roaming\Typora\typora-user-images\image-20210908170558585.png)
 
-      - Pipeline
+    - Pipeline
 
-        - Proporciona etapas para se chegar aos serviços (Meio de campo)
+      - Proporciona etapas para se chegar aos serviços (Meio de campo)
 
-        | Prós                   | Contras                                               |
-        | ---------------------- | ----------------------------------------------------- |
-        | Stack dinâmica         | Provisionamento mais complexo                         |
-        | Simples escalabilidade | Plataforma inteira depende do gerenciador de pipeline |
-        | Desacoplamento         |                                                       |
-        | Menor complexidade     |                                                       |
+      | Prós                   | Contras                                               |
+      | ---------------------- | ----------------------------------------------------- |
+      | Stack dinâmica         | Provisionamento mais complexo                         |
+      | Simples escalabilidade | Plataforma inteira depende do gerenciador de pipeline |
+      | Desacoplamento         |                                                       |
+      | Menor complexidade     |                                                       |
 
-      - Mais complexo no gerenciamento de erros, necessário de controle de estados
+    - Mais complexo no gerenciamento de erros, necessário de controle de estados
 
-        - Solução
-          - Dead letter queue
-          - Filas de re-tentativas
-          - Sistema de roll back
+      - Solução
+        - Dead letter queue
+        - Filas de re-tentativas
+        - Sistema de roll back
+
+### 3-A arquitetura de aplicações móveis e internet das coisas
+
+- Internet
+
+  - Início com arpanet em 1969
+  - Objetivo conectar computadores de centros de pesquisa
+  - Rede de pessoas conectadas
+
+- Internet das coisas
+
+  - Coisas que não são pessoas, se conectam na internet
+  - Embutir sensores para coletar dados, usar dados para tomar decisões
+  - Conceitos básicos de IOT
+    - Things
+      - Sensores para coletar dados
+    - Cloud
+      - Onde é armazenado e processados os dados
+    - Intelligence
+      - Usar os dados gerados de forma inteligente
+
+- Computação ubiqua
+
+  - tecnologia recua para um plano de fundo
+  - terceira onda da computação
+  - As tecnologias mais importantes são aquelas que desaparecem. Elas se integram à vida do dia a dia, ao nosso cotidiano, até serem indistinguiveis dele.
+
+- Desafios
+
+  - Privacidade e segurança
+  - Quantidade exponencial de dispositivos conectadas na rede
+  - Ser capaz de processar e armazenar uma enorme quantidade de informações
+  - Gerar valor a partir dos dados coletados
+
+- Arquitetura de IOT
+
+  - Things	
+
+    - Dispositivo para coleta de dados
+    - O que considerar na escolha
+      - Baixo consumo de energia
+      - Rede de dados limitado
+      - Resiliência
+      - Segurança
+      - Customização
+      - Baixo custo
+
+  - Protocolo de comunicação
+
+    - Protocolo de comunicação único (MQQT)
+
+      - Base na pilha TCP/IP
+
+      - Protocolo de mensagem assíncrona M2M (envia e não aguarda resposta)
+
+      - Criado pela IBM para conectar sensores de pipelines de petróleo a satélites
+
+      - Padrão OASIS suportado pela linguagens de programação mais populares
+
+      - Modelo Publis/Subscribe
+
+        - As things entregam as informações para o Broker que entrega a mensagem para os clientes que estão escritos.
+
+        - ![image-20210909101707582](C:\Users\Micael\AppData\Roaming\Typora\typora-user-images\image-20210909101707582.png)
+
+        - Publish
+
+          - Publica um tópico no borker MQTT
+          - pub mqtt://broker.io/a6g3I9/gps/position
+
+          | mqqt      | broket.io | a6g3I9          | gps    | position         |
+          | --------- | --------- | --------------- | ------ | ---------------- |
+          | PROTOCOLO | BROKET    | USER IDENTIFIER | SENSOR | INFORMATION TYPE |
+
+        - Subscribe
+
+          - Consome as informações do broker
+          - sub mqtt://broker/user/gps/position
+          - sub mqtt://broker/+/gps/position: subscribe em todos usuários
+          - sub mqtt://broker/+/gps/+: subscribe todas informações de GPS
+          - sub mqtt://broker/+/#: subscribe todos usuário de todos os sensores
+
+        - QoS
+
+          - Quality of service
+            - QoS 0
+              - Nível de menor esforço
+              - Não tem garantia nenhuma de que a mensagem foi entregue
+              - Mensagem não é retransmitida
+            - QoS 1
+              - Mensagem primeiro é armazenada no client
+              - Garantia que a mensagem foi entregue no mínimo uma vez ao recebedor
+              - Mensagem pode ser retransmitida se não houver confirmação de entrega
+              - Mecanismo mais comum
+            - QoS 2
+              - Broker informa o client que a mensagem foi gravada
+              - Garantia que a mensagem foi entregue no mínimo uma vez ao recebedor
+              - Mensagem pode ser retransmitida se não houver confirmação de entrega
+
+        - Cloud
+
+          - Maior número de devices conectados e transmitindo dados na infraestrutura
+          - TB´s ou PB´s de informações
+          - ![image-20210909104314190](C:\Users\Micael\AppData\Roaming\Typora\typora-user-images\image-20210909104314190.png)
+            - Worker: subscribe no tópico do broker
+            - Data store: armazena as informações
+            - Cache: As informações mais relevantes para o final
+            - Analitics: Dashboard que consome as informações da área de cache
+
+        - Client - Broker - Worker - Data Store
+
+        - Estrutura POC
+
+          | Thing       | Broker           | Worker  | Data Store |
+          | ----------- | ---------------- | ------- | ---------- |
+          | App Android | Eclipse Mosquito | Node.js | MySQL      |
+
+        - Estrutura MVP
+
+          | Thing         | Broker | Worker         | Data Store  |
+          | ------------- | ------ | -------------- | ----------- |
+          | GPS Embarcado | HiveMQ | Akka Scala JVM | Banco noSQL |
+
+        - Estrutura completa nuvem (Cloud Native)
+
+          | Thing         | Broker       | Worker                | Data Store |
+          | ------------- | ------------ | --------------------- | ---------- |
+          | GPS Embarcado | AWS IoT Core | AWS Kinesis Firehouse | AWS S3     |
+
+  - IOT na Prática
+
+    - ![image-20210909111356155](C:\Users\Micael\AppData\Roaming\Typora\typora-user-images\image-20210909111356155.png)
+    - ![image-20210909111412093](C:\Users\Micael\AppData\Roaming\Typora\typora-user-images\image-20210909111412093.png)
+    - ![image-20210909111857723](C:\Users\Micael\AppData\Roaming\Typora\typora-user-images\image-20210909111857723.png)
+    - Modelo cliente servidor
+      - Cliente->Request->Servidor
+      - Servidor->Resposta->Cliente
 
