@@ -1,0 +1,61 @@
+# Introdução a orquestração de contêineres com Docker
+
+### 1-Introdução ao tema
+
+### 2-Primeiros passos com o Docker
+
+- Run
+  - Criação do container com base na imagem
+  - docker run --name newcontainer hello-world
+    - docker run --name hello -d busybox sleep3600
+      - docker run --name site -d -p 80:80 nginx (cria um container com nome site, no modo demo (-d), na porta 80 do servidor e com a porta 80 exposta pelo nginx (80:80))
+  - curl localhost
+    - Mostra o conteudo do localhost
+  - netstat -nltp
+    - Mostra as portas abertas do servidor
+- ps
+  - Listar os containeres
+  - docker ps
+- Info
+  - Informações do docker
+  - docker info (tras um sumario do que está sendo executado na máquina, e algumas informações da máquina)
+- Images
+  - Imagens utilizadas para criar os containeres
+- Exec
+  - Executar outro binario do container
+  - docker exec hello mkdir teste (cria uma pasta chamada teste no container hello)
+  - docker exec -it hello sh (acessa o container hello no modo iterativo)
+  - exit (sai do container)
+- Logs
+  - Outputs e logs
+  - docker logs site (mostra os logs do container site)
+- Inspect
+  - Listar todas as configurações do container
+- Pull
+  - Baixar imagens do repositorio
+  - docker pull hello-world (baixa a imagem hello-world)
+- Commit
+  - Commitar modificações
+  - docker commit --autor="" --message="Mensagem commit" hello hello (cria uma imagem com nome hello no container hello)
+- Tag
+  - Melhorar o versionamento
+  - docker tag repositorioorigem usuario/repositorio:versao
+    - docker tag hello micael/hello:1.0
+  - 
+- Login, logout
+  - Logar no repositorio
+- Push
+  - Compartilhar ou armazenar a imagens no repositorio
+- Search
+  - Procurar imagem
+- RM
+  - Remover container
+- RMI
+  - Remover imagem
+- Export, Import
+  - Exportar ou importar container
+- Save, Load
+  - Salvar ou carregar uma imagem
+- Dive
+  - Mostra as camadas do container
+- A partir da imagem busybox criou-se o container hello, que por sua vez criou a imagem hello
