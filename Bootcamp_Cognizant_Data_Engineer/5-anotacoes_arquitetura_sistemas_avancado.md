@@ -65,7 +65,7 @@
       | Baseados em transação                                        | Baseado em analytics                              |
       | Atende uma grande gama de usuário                            | Atende uma gama reduzida de usuários              |
 
-      ![image-20210909173241573](C:\workspace\anotacoes_aulas\img\image-20210909173241573.png)
+      ![image-20210909173241573](https://github.com/mbpoloni/anotacoes_aula/blob/master/img/image-20210909173241573.png)
 
 - Big data
 
@@ -116,7 +116,7 @@
 - Data Lake
 
   - É um big data mais corporativo, mais tratado
-  - ![image-20210909175735033](C:\workspace\anotacoes_aulas\img\image-20210909175735033.png)
+  - ![image-20210909175735033](https://github.com/mbpoloni/anotacoes_aula/blob/master/img/image-20210909175735033.png)
   - Consiste em uma seleção e limpeza dos dados vindos de uma base estruturada e não estruturada
 
 - Tutorial mongoDB
@@ -136,7 +136,7 @@
   - BAAS (Backend as a service)
     - Firebase
     - Foco em ter o front funcionando
-  - ![image-20210909182640614](C:\workspace\anotacoes_aulas\img\image-20210909182640614.png)
+  - ![image-20210909182640614](https://github.com/mbpoloni/anotacoes_aula/blob/master/img/image-20210909182640614.png)
 - Disponibilidade
   - IAAS
     - Não se preocupar com hardware e internet

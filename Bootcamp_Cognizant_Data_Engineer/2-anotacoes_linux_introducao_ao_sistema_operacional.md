@@ -56,7 +56,7 @@
 - !!
   - executa o ultimo comando do terminal
 - Atalhos
-  - ![image-20210901102719495](C:\workspace\anotacoes_aulas\img\image-20210901102719495.png)
+  - ![image-20210901102719495](https://github.com/mbpoloni/anotacoes_aula/blob/master/img/image-20210901102719495.png)
 - mv "Caminho"
   - Move o arquivo
     - mv "Nome inicial do arquivo" "Nome futuro" 
@@ -84,7 +84,7 @@
 - exit ou CTRL + D
   - sai do terminal
 - Revisão de comandos
-  - ![image-20210901104339264](C:\workspace\anotacoes_aulas\img\image-20210901104339264.png)
+  - ![image-20210901104339264](https://github.com/mbpoloni/anotacoes_aula/blob/master/img/image-20210901104339264.png)
 
 ### 3-Comandos para manipulação de arquivos e textos e redirecionamento
 
@@ -145,7 +145,7 @@
 ### 4-Diretórios do Linux e comandos de sistema
 
 - Diretórios
-  - ![image-20210901161434254](C:\workspace\anotacoes_aulas\img\image-20210901161434254.png)
+  - ![image-20210901161434254](https://github.com/mbpoloni/anotacoes_aula/blob/master/img/image-20210901161434254.png)
 - Binários
   - São os executáveis do Linux
 - root
@@ -280,7 +280,7 @@
   - imprimi a sequencia de caracteres
   - exemplo: seq 1 10
 - Comandos
-  - ![image-20210903140834343](C:\workspace\anotacoes_aulas\img\image-20210903140834343.png)
+  - ![image-20210903140834343](https://github.com/mbpoloni/anotacoes_aula/blob/master/img/image-20210903140834343.png)
 
 ### 7-Controle de usuários, grupos e permissões
 
@@ -360,7 +360,7 @@
 
   - mostra detalhes
   - d rwx rwx rwx - primeira sequencia é o dono, segunda sequencia quem pertence ao grupo e terceira sequencia os outros
-    - ![image-20210903145150407](C:\workspace\anotacoes_aulas\img\image-20210903145150407.png)
+    - ![image-20210903145150407](https://github.com/mbpoloni/anotacoes_aula/blob/master/img/image-20210903145150407.png)
 
 - chmod
 
@@ -369,7 +369,7 @@
 
 - Modo octal
 
-  - ![image-20210903145450763](C:\workspace\anotacoes_aulas\img\image-20210903145450763.png)
+  - ![image-20210903145450763](https://github.com/mbpoloni/anotacoes_aula/blob/master/img/image-20210903145450763.png)
 
   ### 8-Compactação, descompactação e arquivamento
 
