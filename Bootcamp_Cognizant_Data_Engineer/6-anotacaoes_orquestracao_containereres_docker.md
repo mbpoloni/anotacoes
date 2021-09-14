@@ -66,7 +66,6 @@
 
 - docker network sl
   - Exibe as conexoes da instancia
-
 - Bridge
   - Rede default do Docker, utilizado para comunicação entre containers
   - Pode se definir o range de IPs no momento de criação da rede
@@ -100,12 +99,48 @@
     - a porta é a aplicação que define
     - imagem chrch/docker-pets:1.0
 - Overlay
-  - Permite comunicação entre containeres de host diferentes
+  - Permite comunicação entre containeres de host (vms) diferentes
   - Criação de um docker swarm
   - Melhore escabilidade dos hosts e dos containeres
   - ![image-20210914111750682](https://github.com/mbpoloni/anotacoes_aula/blob/master/img/image-20210914111750682.png)
+  - para fazer a criação de uma comunicação entre dois containeres em hosts diferentes é necessário um cluster de swarm(kubernets)
+  - cluster de swarm
+    - um dos hosts deve ser o principal
+    - porta 4789
+    - docker swarm init --advertise-addr 192.168.0.18
+      - cria o cluster no servidor 192.168.0.18
+      - gera um token para inserir nos outros hosts
+    - docker node ls
+      - lista as conexoes com outros servidores
+  - docker network create -d overlay petsOverlay
+    - cria uma conexao overlay em modo demo com o nome petsOverlay
+  - docker service create --network petsOverlay --name db consul
+    - cria um serviço overlay nomeado db com consul
+  - docker service create --network petsOverlay -p 8000:5000 -e 'DB-db' --name web chrch/docker-pets:1.0
+  - docker service scale web=3
+    - escala os serviços para 3 servidores
 - Macvlan
   - Permite atribuir um endereço MAC ao container tornando ele visível como um dispositivo físico na rede
 - None
   - Sem rede
+- Repositorio
+  - https://github.com/luistkd4/docker101
+
+### 4-Armazenamento no docker
+
+![](https://github.com/mbpoloni/anotacoes_aula/blob/master/img/image-20210914192131979.png)
+
+- Volume
+  - disco virtual onde o docker engine tem total autonomia sobre ele
+  - o host não precisa ter uma estrutura de arquivos
+  - torna mais carregado a leitura do disco
+  - preferível para usar em ambientes replicados
+  - se o container é removido as informações são persistidas em disco
+- Bind mounts
+  - Pasta compartilhada com o container
+  - se o container é removido as informações são persistidas em disco
+- tmpfs mounts
+  - armazenamento temporário
+  - logs de aplicação
+  - 
 
