@@ -136,11 +136,67 @@
   - torna mais carregado a leitura do disco
   - preferível para usar em ambientes replicados
   - se o container é removido as informações são persistidas em disco
+  - docker volume create meuPrimeiroVolume
+    - cria o volume
+  - docker volume ls
+    - lista os volumes
+  - docker volume inspect nomevolume
+    - exibe as informações do volume
+  - docker run -d -p 80:80 --name container-volume --mount source=meuPrimeiroVolume, target=/usr/share/nginx
+    - criar um container no volume utilizando o enginex
+  - quando utiliza o volume, se já existia itens no caminho será colocados as informações presentes no host
 - Bind mounts
   - Pasta compartilhada com o container
   - se o container é removido as informações são persistidas em disco
+  - mkdir /html
+    - criar pasta
+  - docker run -d --name container-bind -p 80:80 -v /html:/usr/share/share/nginx/html nginx
+    - cria um container em um volume do tipo bind
 - tmpfs mounts
   - armazenamento temporário
   - logs de aplicação
-  - 
+  - docker run -d --name container-tmpfs --mount type-tmpfs, destination=/cache, tmpfs-size=1000000 busybox sleep=3600
+    - 
+  - cria container do tipo tmpfs com cache no tamanho de 1mb utilizando busybox 
+
+### 5-Nosso projeto no ar
+
+- Limites
+
+  - Limitar o uso de cpu, memoria para não prejudicar a máquina como todo
+  - --memory 10m
+    - limita o uso de memoria em 10mb
+  - docker run -d --memory 10m busybox sleep 3600
+    - cria container com imagem busybox com memoria limitada em 10mb
+  - free -m
+    - lista a quantidade de memoria livre do host
+  - --cpus=".5"
+    - limita o uso de cpu em 50%
+
+- Projeto
+
+  - https://github.com/luistkd4/docker101
+
+  ![image-20210915114819124](https://github.com/mbpoloni/anotacoes_aula/blob/master/img/image-20210915114819124.png)
+
+- docker compose
+
+  - arquivo contendo as diretrizes do que precisa ser feito
+
+- Dockerfile
+
+  - contem as instruções para o docker
+
+- docker-compose up -d 
+
+  - ler o dockercompose.yml
+  - não é nativo
+
+- docker-compose up --build -d
+
+  - faz o build se foi a aplicação foi modificado
+
+- docker-compose down
+
+  - apaga os containers
 
