@@ -194,6 +194,42 @@
   - Schemas
     - Conjunto de objetos/relações (tabelas, funções, views)
   - ![image-20210916193012738](https://github.com/mbpoloni/anotacoes_aula/blob/master/img/image-20210916193012738.png)
+  
+- PGAdmin
+
+  - Interface gráfica para interagir com o banco de dados
+  - Se houver problemas de conexão com o banco de dados
+    - Liberar acesso ao cluster em postreesql.conf
+    - Liberar acesso ao cluster para o usuário do banco de dados em pg_hba.conf
+    - Criar/editar usuários
+  - listen_addresses = 'localhost'
+    - endereços que podem se conectar ao banco de dados
+  - nomecluster versao_postrgree local start
+    - exemplo: pg_cluster 11 aula start
+  - psql -h 127.0.0.1 -p 5432 -U postgres aula
+    - utilizar o binário psql no host (-h) 127.0.0.1 na porta (-p) 5432 com o usuário (-U) postgres no banco aula
+  - todo comando sql termina com ;
+  - ALTER USER postgres PASSWORD '123';
+    - altera senha do usuário postgres para 123
+  - \q
+    - sai do banco sql
+  - peer
+    - se o usuário do banco for igual ao usuário do sistema operacional libera acesso
+  - md5
+    - solicita autenticação de usuario
+  - nomecluster versao_postrgree local reload
+    - restarta o banco com um tempo de downtime baixo
+  - schemas
+    - grupos de objetos
+  - database sessions
+    - conexões com o banco de dados
+  - transactions per seconds
+    - transações que estão acontecendo no banco de dados
+  - tuples in / tuples out
+    - tuples in: comandos instert, delete que está sendo recebido
+    - tuples out: retorno de informações do banco
+  - CREATE DATABASE auladb;
+    - cria um banco de dados com o nome auladb
   - 
 
 
