@@ -230,7 +230,36 @@
     - tuples out: retorno de informações do banco
   - CREATE DATABASE auladb;
     - cria um banco de dados com o nome auladb
-  - 
+  - Roles | Users | Grupos de usuários
+    - são contas, perfis de atuação em um banco de dados, que possuem permissões em comum ou específicas
+    - nas versões anteriores do PostgreSQL 8.1, usuários e roles tinham comportamentos diferentes, atualmente, roles e users são alias
+    - CREATE ROLE name [[WITH] option[...]]
+      - cria uma role/usuario
+      - Opções
+        - ![image-20210922184414677](https://github.com/mbpoloni/anotacoes_aula/blob/master/img/image-20210922184414677.png)
+      - IN ROLE
+        - a nova rola passa a pertencer a role informada
+      - ROLE
+        - a role informada passa a pertencer a nova role
+      - CREATE ROLE daniel LOGIN CONNECTION LIMIT 1 PASSWORD '123' IN ROLE professores
+  - GRANT
+    - conecede acesso após a criaçã da role
+    - GRANT [role a ser concedida] TO [role a assumir as permissões]
+    - privilégios de acesso aos objetos do banco de dados
+      - ![image-20210922191201019](https://github.com/mbpoloni/anotacoes_aula/blob/master/img/image-20210922191201019.png)
+    - ![image-20210922191322880](https://github.com/mbpoloni/anotacoes_aula/blob/master/img/image-20210922191322880.png)
+  - REVOKE
+    - remove as permissõs de uma role
+    - REVOKE [role que será revogada] FROM [role que terá suas permissões revogadas]
+    - REVOKE professores FROM daniel
+      - dessaocia a role daniel de professores
+    - ![image-20210922191715682](https://github.com/mbpoloni/anotacoes_aula/blob/master/img/image-20210922191715682.png)
+  - ALTER
+    - altera a role
+    - ALTER ROLE role_specification [WITH] OPTION [...]
+  - DROP
+    - elimina a role
+    - DROP ROLE role_specification
 
 
 
