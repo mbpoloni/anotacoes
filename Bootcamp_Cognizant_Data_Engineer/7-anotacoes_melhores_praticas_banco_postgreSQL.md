@@ -260,6 +260,29 @@
   - DROP
     - elimina a role
     - DROP ROLE role_specification
+  
+- Database
+
+  - É o banco de dados
+  - CREATE DATABASE name
+  - ALTER DATABE name
+    - ALTER DATABASE name RENAME TO new_name
+  - DROP DATABASE name
+
+- Schemas
+
+  - É um grupo de objetos, como tabelas, types, views, funções, entre outros
+  - CREATE SCHEMA schema_name
+    - CREATE SCHEMA IF NOT EXISTS schema_name
+  - ALTER SCHEMA name
+  - DROP SCHEMA name
+    - DROP SCHEMA IF EXISTS name
+
+- Objetos
+
+  - São as tabelas, views, funções, types, sequence
+
+- 08:34
 
 
 
