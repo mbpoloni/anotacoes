@@ -282,7 +282,63 @@
 
   - São as tabelas, views, funções, types, sequence
 
-- 08:34
+- Primary Key
+
+  - Conjunto de um ou mais campos que nunca se repetem em uma tabela
+  - Os valores garantem a integridade do dado unico
+  - O atributo de chave primaria deve sempre eixistir
+  - Os atributos identificadores devem ser o conjunto mínimo que pode identificar cada instancia de uma entidade
+  - Não devem ser usadas chaves externas
+  - Não deve conter informação volátil, não pode se alterar
+
+- Foreingn Key
+
+  - Campo ou conjunto de campos que são referências de chaves primárias de outras tabelas
+
+- Cuidado para não ter muitas repetições
+
+- Tipos de dados
+
+  - Numéricos
+
+    ![image-20210929111704437](C:\Users\micaelpo\AppData\Roaming\Typora\typora-user-images\image-20210929111704437.png)
+
+  - Caracteres
+
+    ![image-20210929111801742](C:\Users\micaelpo\AppData\Roaming\Typora\typora-user-images\image-20210929111801742.png)
+
+  - Data
+
+    ![image-20210929111913397](C:\Users\micaelpo\AppData\Roaming\Typora\typora-user-images\image-20210929111913397.png)
+
+  - Booleanos
+
+    - True, or False
+
+- DML
+
+  - Data manipulation language
+  - INSERT, UPDATE, DELETE, SELECT
+
+- DDL
+
+  - Data definition language
+
+  - CREATE, ALTER, DROP
+
+    - CREATE TABLE [IF NOT EXISTS] [nome tabela] (
+
+      [nome do campo] [tipo] [regras] [opções],
+
+      [nome do campo] [tipo] [regras] [opções]
+
+      );
+
+    - ALTER TABLE [nome tabela] [opções]
+
+    - DROP TABLE [nome da table]
+
+- 
 
 
 
