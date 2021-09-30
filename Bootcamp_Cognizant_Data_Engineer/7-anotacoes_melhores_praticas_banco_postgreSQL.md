@@ -319,6 +319,24 @@
 
   - Data manipulation language
   - INSERT, UPDATE, DELETE, SELECT
+    - INSERT
+      - INSERT INTO [nome tabela] ([campos da tabela,]) VALUES([valores de acordo com a ordem dos campos])
+      - INSERT INTO [nome tabela] ([campos da tabela,]) SELECT([valores de acordo com a ordem dos campos])
+      - Exemplo:
+        - INTER INTO agencia (banco_numero, numero, nome) VALUES (341,1,'Centro da cidade') ON CONFLICT (banco_numero, numero) DO NOTHING;
+    - UPDATE
+      - UPDATE [nome da tabela] SET [campo1] = [novo valor do campo1], [campo2] = [novo valor do campo,]... [WHERE + condições] *Sempre utilizar updates com condições*
+      - UPDATE (tabela) SET campo1 = novo_valor WHERE (condição);
+    - DELETE
+      - DELETE FROM [nome da tabela] [WHERE + condições] *Sempre utilizar deletes com condições*
+      - DELETE FROM tabela SET campo1 = novo_valor WHERE (condição);
+    - SELECT
+      - SELECT [campos da tabela] FROM[nome da tabela] [WHERE + condições] *Sempre tentar evitar o SELECT* *
+      - Exemplo: 
+        - SELECT nome FROM cliente WHERE email LIKE '%gmail.com'
+        - LIKE - respeita o case sensitive
+        - ILIKE - não respeita o case sensitive
+      - Condição WHERE / AND / OR
 
 - DDL
 
@@ -334,11 +352,50 @@
 
       );
 
-    - ALTER TABLE [nome tabela] [opções]
+    - Exemplo:
 
-    - DROP TABLE [nome da table]
+      - CREATE TABLE IF NOT EXISTS agencia(
+    
+        banco_numero INTEGER NOT NULL,
+    
+        numero INTEGER NOT NULL,
+    
+        nome VARCHAR(80) NOT NULL,
+    
+        ativo BOOLEAN NOT NULL DEFAULT TRUE,
+    
+        data_criacao TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    
+        PRIMARY KEY (banco_numero, numero)
+    
+        FOREIGN KEY (banco_numero) REFERENCES banco (numero);
+    
+    - Boas práticas:
+    
+      - ativo BOOLEAN NOT NULL DEFAULT TRUE,
+      - data_criacao TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+    
+  - ALTER TABLE [nome tabela] [opções]
 
-- 
+  - DROP TABLE [nome da table]
+
+
+### Fundamentos da Structured Query Language (SQL)
+
+- CRUD: Create, Read, Update, Delete
+- IDEMPOTÊNCIA
+  - Propriedades que algumas ações/operações possuem possibilitandos-as de serem executadas diversas vezes sem alterar o resultado após a aplicação inicial
+- Melhores práticas em DDL
+  - Criar colunas que são atributos básicos do objeto
+  - Cuidado com regras (constraints)
+  - Cuidado com excesso de Fks
+  - Cuidado com o tamanho indevido de colunas
+- TRUNCATE
+  - Esvazia a tabela
+  - RESTART IDENTITY
+    - Reinicia a contagem do id
+  - CASCADE
+    - Apaga os foreign keys
 
 
 
