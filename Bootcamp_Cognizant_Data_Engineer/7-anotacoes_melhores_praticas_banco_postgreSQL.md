@@ -397,5 +397,25 @@
   - CASCADE
     - Apaga os foreign keys
 
-
+- Funções agregadas
+  - SELECT * FROM information_schema.columns WHERE table_name = 'banco';
+    - Seleciona as informações de columa
+  - SELECT column_name, data_type FROM information_schema_columns WHERE table_name = 'banco';
+  - www.postgresql.org/docs/11/functions-aggregate.html
+  - AVG
+    - SELECT AVG(valor) FROM cliente_transacoes;
+  - COUNT
+    - SELECT COUNT(numero) from clientes;
+    - SELECT COUNT(numero), email FROM cliente WHERE email ILIKE '%gmail.com' GROUP BY email
+    - SELECT COUNT(id) , tipo_transacao_id FROM cliente_transacoes GROUP BY tipo_transacao_id HAVING COUNT (id) > 150
+  - MAX
+    - SELECT MAX(valor) FROM cliente_transacoes
+    - SELECT MAX(valor), tipo_transacao_id FROM cliente_transacoes GROUP BY tipo_transacao_id
+  - MIN
+    - SELECT MIN(numero)  FROM cliente_transacoes
+    - SELECT MIN(valor), tipo_transacao_id FROM cliente_transacoes GROUP BY tipo_transacao_id
+  - SUM
+    - SELECT SUM (valor) FROM cliente_transacoes
+    - SELECT SUM(valor), tipo_transacao_id FROM cliente_transacoes GROUP BY tipo_transacao_id ORDER BY tipo_transacao_id ASC
+    - SELECT SUM(valor), tipo_transacao_id FROM cliente_transacoes GROUP BY tipo_transacao_id ORDER BY tipo_transacao_id DESC
 
