@@ -400,22 +400,139 @@
 - Funções agregadas
   - SELECT * FROM information_schema.columns WHERE table_name = 'banco';
     - Seleciona as informações de columa
+    
   - SELECT column_name, data_type FROM information_schema_columns WHERE table_name = 'banco';
+  
   - www.postgresql.org/docs/11/functions-aggregate.html
+  
   - AVG
     - SELECT AVG(valor) FROM cliente_transacoes;
+    
   - COUNT
     - SELECT COUNT(numero) from clientes;
     - SELECT COUNT(numero), email FROM cliente WHERE email ILIKE '%gmail.com' GROUP BY email
     - SELECT COUNT(id) , tipo_transacao_id FROM cliente_transacoes GROUP BY tipo_transacao_id HAVING COUNT (id) > 150
+    
   - MAX
     - SELECT MAX(valor) FROM cliente_transacoes
     - SELECT MAX(valor), tipo_transacao_id FROM cliente_transacoes GROUP BY tipo_transacao_id
+    
   - MIN
     - SELECT MIN(numero)  FROM cliente_transacoes
     - SELECT MIN(valor), tipo_transacao_id FROM cliente_transacoes GROUP BY tipo_transacao_id
+    
   - SUM
     - SELECT SUM (valor) FROM cliente_transacoes
     - SELECT SUM(valor), tipo_transacao_id FROM cliente_transacoes GROUP BY tipo_transacao_id ORDER BY tipo_transacao_id ASC
     - SELECT SUM(valor), tipo_transacao_id FROM cliente_transacoes GROUP BY tipo_transacao_id ORDER BY tipo_transacao_id DESC
+    
+  - JOIN
+  
+    - Relação entre as tabelas
+  
+    - JOIN OU INNER JOIN
+  
+      - Exibe os registros relacionados entre as tabelas
+  
+      - Exemplo:
+  
+        ```
+        SELECT tabela1.campos, tabela2.campos
+        FROM tabela1
+        JOIN tabela2
+        ON tabela2.campo = tabela1.com
+        ```
+  
+        ```
+        SELECT count(distinct banco.numero)
+        FROM banco
+        JOIN agencia ON agencia.banco_numero = banco.numero
+        ```
+  
+        
+  
+      - Tentar utilizar campos que são primary keys e foreign keys para otimizar os recursos do banco
+  
+    - LEFT JOIN OU LEFT OUTER JOIN
+  
+      - Exibe os registros da tabela da esquerda(primeira tabela mencionada) e os campos que houver relacionamento da direita, se não houve trás o registro nulo.
+  
+      - Exemplo:
+  
+        ```
+        SELECT tabela1.campos, tabela2.campos
+        FROM tabela1
+        LEFT JOIN tabela2
+        ON tabela2.campo = tabela1.campo
+        ```
+  
+      - 
+  
+    - RIGHT JOIN OU RIGHT OUTER JOIN
+  
+      - Exibe os registros da tabela da direita(segunda tabela mencionada) e os campos que houver relacionamento da esquerda, se não houve trás o registro nulo.
+  
+      - Exemplo:
+  
+        ```
+        SELECT tabela1.campos, tabela2.campos
+        FROM tabela1
+        RIGHT JOIN tabela2
+        ON tabela2.campo = tabela1.campo
+        ```
+  
+        
+  
+    - FULL JOIN OU FULL OUTER JOIN
+  
+      - Trás todas possibilidades de relacionamentos possíveis
+  
+      - Exemplo:
+  
+        ```
+        SELECT tabela1.campos, tabela2.campos
+        FROM tabela1
+        FULL JOIN tabela2
+        ON tabela2.campo = tabela1.campo
+        ```
+  
+    - CROSS JOIN
+  
+      - Todos os dados de uma tabela serão cruzados com todos os dados da tabela rederenciada no CROSS JOIN criando uma matriz
+  
+      - Exemplo:
+  
+        ```
+        SELECT tabela1.campos, tabela2.campos
+        FROM tabela1
+        CROSS JOIN tabela2
+        ```
+  
+      - Desperdício de recurso
+  
+    - ALIAS
+  
+      - Utilizar alias para não precisar digitar o nome da tabela
+  
+        ```
+        SELECT tbla.valor, tblb.valor
+        FROM teste_a tbla
+        CROSS JOIN teste_b tblb;
+        ```
+  
+  - Common Table Expressions CTE
+  
+    - Forma aixiliar de organizar statements, ou seja, blocos de códigos, para consultas muito grandes, gerando tabelas temporárias e criando relacionamento entre elas.
+  
+    - Dentro dos statements podem ter SELECTS, INSTERS, UPDATES OU DELETES
+  
+    - Usando quando envolve uma lógica mais complexa
+  
+    - Cria tabelas temporárias
+  
+      ```
+      WITH [NOME1 AS (SELECT (campos,)FROM tabela_A [WHERE]),[nome2]AS (SELECT (campos,) FROM tabela_B [WHERE]) SELECT [nome1], (campos1), [NOME2], (campos) FROM [nome1] JOIN[nome2]]
+      ```
+  
+      
 
