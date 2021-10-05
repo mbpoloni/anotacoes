@@ -534,5 +534,36 @@
       WITH [NOME1 AS (SELECT (campos,)FROM tabela_A [WHERE]),[nome2]AS (SELECT (campos,) FROM tabela_B [WHERE]) SELECT [nome1], (campos1), [NOME2], (campos) FROM [nome1] JOIN[nome2]]
       ```
   
+  - Views
+  
+    - São camadas para as tabelas
+  
+    - São alias para uma ou mais queries
+  
+    - Aceitam comandos de SELECT, INSERT, UPDATE, E DELETE
+  
+      - INSERT, UPDATE, DELETE = É aceito somente em views de uma tabela
+  
+    - ```
+      CREATE VIEW name AS query
+      ```
+  
+    - Parâmetros
+  
+      - OR REPLACE - Substitui caso haja uma view
+      - TEMP | TEMPORARY - Cria uma view somente na instancia, se fechar a sessão as informações serão perdidadas. Se houver uma outra pessoa programando no mesmo banco ela não terá acesso a view
+      - RECURSIVE - Select dentro da view, que chama a view até esgotar uma determinada opção
+  
+    - Idempotencia
+  
+      ```
+      CRETE OR REPLACE VIEW vw_banco AS (
+      	SELECT numero, nome, ativo
+      	FROM banco
+      	);
+      SELECT numero, nome, ativo
+      FROM vw_bancos;
+      ```
+  
       
 
