@@ -653,7 +653,76 @@
       ROOLBACK
       ```
 
-      
+  - FUNÇÕES
 
-    
+    - Conjunto de códigos que são executados dentro de uma transação com a finalidade de facilitar a programação e obter o reaproveitamento/reutilização de códigos
+  
+      - query language functions (funções escritas em SQL)
+      - procedural language functions (funções escritas em PL/pgSQL ou PL/py)
+      - internal functions
+      - C-language functions
+  
+      ```
+      CREATE OR REPLACE FUNCTION name 
+      ```
+  
+    - RETURNS
+  
+      - INTEGER
+      - CHAR/VARCHAR
+      - BOOLEAN
+      - ROW
+      - TABLE
+      - JSON
+  
+    - LANGUAGE
+  
+      - SQL
+      - PLPGSQL
+      - PLJAVA
+      - PLPY
+  
+    - SECURITY
+  
+      - INVOKER - permitir que a função seja executada com as permissões do usuário que a chamar
+      - DEFINER - as permissões de usuário que criou a função passa para o usuário que chamou a função
+  
+    - COMPORTAMENTO
+  
+      - IMMUTABLE - Não pode alterar o banco de dados, Evitar selects
+      - STABLE - Não pode alterar o banco de dados. Pode conter selects
+      - VOLATILE - Comportamento padrão, aceita todos os cenários
+  
+    - SEGURANÇA E BOAS PRÁTICAS
+  
+      - CALLED ON NULL INPUT
+        - Se qualquer um dos parâmetros for num, a função será executada
+      - RETURNS NULL ON NULL INPUT
+        - Se qualquer um dos parâmetros for null, a função retornará null
+  
+    - RECURSO
+  
+      - COST
+        - Custo/row em unidades de CPU
+      - ROWS
+        - Número estimados de linhas que será analisada pelo planner
+  
+    - SQL
+  
+      - Não é possível utilizar transações
+  
+      ```
+      CREATE OR REPLACE FUNCTION fc_somar (num1 INTEGER, num2 INTEGER)
+      RETURNS INTEGER
+      LANGUAGE SQL
+      AS $$
+      	SELECT num1 + num2;
+      $$;
+      ```
+  
+    - PLPGSQL
+  
+      - Pode utilizar transações
+  
+  
 
