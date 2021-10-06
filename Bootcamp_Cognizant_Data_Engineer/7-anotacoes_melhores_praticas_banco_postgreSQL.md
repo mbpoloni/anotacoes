@@ -402,9 +402,9 @@
     - Seleciona as informações de columa
     
   - SELECT column_name, data_type FROM information_schema_columns WHERE table_name = 'banco';
-  
+
   - www.postgresql.org/docs/11/functions-aggregate.html
-  
+
   - AVG
     - SELECT AVG(valor) FROM cliente_transacoes;
     
@@ -427,135 +427,135 @@
     - SELECT SUM(valor), tipo_transacao_id FROM cliente_transacoes GROUP BY tipo_transacao_id ORDER BY tipo_transacao_id DESC
     
   - JOIN
-  
+
     - Relação entre as tabelas
-  
+
     - JOIN OU INNER JOIN
-  
+
       - Exibe os registros relacionados entre as tabelas
-  
+
       - Exemplo:
-  
+
         ```
         SELECT tabela1.campos, tabela2.campos
         FROM tabela1
         JOIN tabela2
         ON tabela2.campo = tabela1.com
         ```
-  
+
         ```
         SELECT count(distinct banco.numero)
         FROM banco
         JOIN agencia ON agencia.banco_numero = banco.numero
         ```
-  
+
         
-  
+
       - Tentar utilizar campos que são primary keys e foreign keys para otimizar os recursos do banco
-  
+
     - LEFT JOIN OU LEFT OUTER JOIN
-  
+
       - Exibe os registros da tabela da esquerda(primeira tabela mencionada) e os campos que houver relacionamento da direita, se não houve trás o registro nulo.
-  
+
       - Exemplo:
-  
+
         ```
         SELECT tabela1.campos, tabela2.campos
         FROM tabela1
         LEFT JOIN tabela2
         ON tabela2.campo = tabela1.campo
         ```
-  
+
       - 
-  
+
     - RIGHT JOIN OU RIGHT OUTER JOIN
-  
+
       - Exibe os registros da tabela da direita(segunda tabela mencionada) e os campos que houver relacionamento da esquerda, se não houve trás o registro nulo.
-  
+
       - Exemplo:
-  
+
         ```
         SELECT tabela1.campos, tabela2.campos
         FROM tabela1
         RIGHT JOIN tabela2
         ON tabela2.campo = tabela1.campo
         ```
-  
+
         
-  
+
     - FULL JOIN OU FULL OUTER JOIN
-  
+
       - Trás todas possibilidades de relacionamentos possíveis
-  
+
       - Exemplo:
-  
+
         ```
         SELECT tabela1.campos, tabela2.campos
         FROM tabela1
         FULL JOIN tabela2
         ON tabela2.campo = tabela1.campo
         ```
-  
+
     - CROSS JOIN
-  
+
       - Todos os dados de uma tabela serão cruzados com todos os dados da tabela rederenciada no CROSS JOIN criando uma matriz
-  
+
       - Exemplo:
-  
+
         ```
         SELECT tabela1.campos, tabela2.campos
         FROM tabela1
         CROSS JOIN tabela2
         ```
-  
+
       - Desperdício de recurso
-  
+
     - ALIAS
-  
+
       - Utilizar alias para não precisar digitar o nome da tabela
-  
+
         ```
         SELECT tbla.valor, tblb.valor
         FROM teste_a tbla
         CROSS JOIN teste_b tblb;
         ```
-  
+
   - Common Table Expressions CTE
-  
+
     - Forma aixiliar de organizar statements, ou seja, blocos de códigos, para consultas muito grandes, gerando tabelas temporárias e criando relacionamento entre elas.
-  
+
     - Dentro dos statements podem ter SELECTS, INSTERS, UPDATES OU DELETES
-  
+
     - Usando quando envolve uma lógica mais complexa
-  
+
     - Cria tabelas temporárias
-  
+
       ```
       WITH [NOME1 AS (SELECT (campos,)FROM tabela_A [WHERE]),[nome2]AS (SELECT (campos,) FROM tabela_B [WHERE]) SELECT [nome1], (campos1), [NOME2], (campos) FROM [nome1] JOIN[nome2]]
       ```
-  
+
   - Views
-  
+
     - São camadas para as tabelas
-  
+
     - São alias para uma ou mais queries
-  
+
     - Aceitam comandos de SELECT, INSERT, UPDATE, E DELETE
-  
+
       - INSERT, UPDATE, DELETE = É aceito somente em views de uma tabela
-  
+
     - ```
       CREATE VIEW name AS query
       ```
-  
+
     - Parâmetros
-  
+
       - OR REPLACE - Substitui caso haja uma view
       - TEMP | TEMPORARY - Cria uma view somente na instancia, se fechar a sessão as informações serão perdidadas. Se houver uma outra pessoa programando no mesmo banco ela não terá acesso a view
       - RECURSIVE - Select dentro da view, que chama a view até esgotar uma determinada opção
-  
+
     - Idempotencia
-  
+
       ```
       CRETE OR REPLACE VIEW vw_banco AS (
       	SELECT numero, nome, ativo
@@ -564,6 +564,96 @@
       SELECT numero, nome, ativo
       FROM vw_bancos;
       ```
-  
+
+    - Não define datatype pois assume o tipo de dado da consulta
+
+    - CREATE, UPDATE OU DELETE so funcionam para views com apenas uma tabela
+
+      ```
+      INSERT INTO vw_bancos(numero, nome, ativo)VALUES(100,'Banco CEM', TRUE)
+      UPDATE vw_bancos SET nome = 'Banco 100' WHERE numero = 100
+      DELETE FROM vw_bancos WHERE numero = 100
+      ```
+
+      - Insere os dados na tabela, a view serve como uma janela
+
+    - TEMPORARY
+
+      - VIEW presente apenas na sessão do usuário. Se você desconectar e conectar novamente, a VIEW não estará disponível
+
+    - RECURSIVE
+
+      - O comando dela chama ela mesmo, numa espécie de loop
+
+        ```
+        CREATE OR REPLACE RECURSIVE VIEW nome_da_view (campos_da_view) AS (
+        	SELECT base
+        	UNION ALL
+        	SELECT campos
+        	FROM tabela_base
+        	JOIN(nome_da_view))
+        ```
+
+      - UNION 
+
+        - Unifica
+
+      - UNION ALL
+
+        - Nao unifica
+
+    - WITH OPTIONS
+
+      ```
+      CREATE OR REPLACE VIEW vw_bancos AS (
+      	SELECT numero, nome, ativo
+      	FROM banco
+      	WHERE ativo IS TRUE
+      	)WITH LOCAL CHECK OPTION
+      	
+      INSERT INTO vw_banco (numero, nome, ativo) VALUES (100,'Banco 100', FALSE)
       
+      --Retorna erro pois requer que ativo = true
+      ```
+
+      - Valida conforme as regras que houver WITH LOCAL CHECK OPTION
+
+      ```
+      WITH CASCADE CHACK OPTION
+      ```
+
+      - Valida as regras da view e das views que a view relaciona
+
+  - TRANSAÇÃO
+
+    - Conceito fundamental de todos os sistemas de bancos de dados
+
+    - Conceito de multiplas etapas/códigos reunidos em apenas 1 transação, onde o resultado precisa ser tudo ou nada.
+
+      ```
+      BEGIN;
+      	UPDATE conta SET valor = valor -100
+      	WHERE nome = 'Alice';
+      	
+      	UPDATE conta SET valor = valor + 100
+      	WHERE nome = 'Bob'
+      COMMIT;
+      ```
+
+      - Se ocorrer algum erro entre o BEGIN  e o COMMIT ocorre um rollback e qualquer aleração é desfeita
+
+    - SAVEPOINT 
+
+      - Manter as alterações realizadas até o momento 
+
+      ```
+      BEGIN;
+      UPDATE banco SET ativo = TRUE WHERE numero = 0;
+      SELECT numero, nome, ativo FROM banco WHERE numero = 0;
+      ROOLBACK
+      ```
+
+      
+
+    
 
