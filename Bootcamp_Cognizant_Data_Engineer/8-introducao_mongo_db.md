@@ -25,7 +25,154 @@
 
     - Document Store
 
+      - São livres de esquemas podendo utilizar JSON, XML entre outros
+
+      - Dados e documentos autocontidos e auto descritivos, permite redundância e inconsistência
+
+      - Mais utilizados
+
+        - Mongo DB
+
+      - Mongo DB
+
+        - Schema free
+
+        - Alta performance
+
+        - Código aberto
+
+        - Utiliza json para armazenamento de dados
+
+        - Tem suporte a indices
+
+        - Auto-sharding - escala de forma horizontal
+
+        - Map-reduce - ferramenta de consulta e agregação
+
+        - GridFS - armazenamento de arquivos
+
+        - Os dados não podem depender de outros dados
+
+        - Estruturação
+
+          - Document -> Tupla/Registro
+          - Collection -> Tabela
+          - Embedding/linking -> Join
+
+        - Quando usar
+
+          | Usar                   | Não usar                                       |
+          | ---------------------- | ---------------------------------------------- |
+          | Grande volume de dados | Necessidade de relacionamentos/joins           |
+          | Dados não estruturados | Propriedades ACID e transações são importantes |
+
     - Key-Value Store
+
+      - Armazena um conjunto de dados, simples ou complexos, identificados por um identificador exclusivo
+
+      - Não existe definição de schema
+
+      - Constituído por duas partes
+
+        - Chave
+        - Valor
+
+      - Usos
+
+        - Cache, sessão de usuário, carrinho de compra
+
+      - Mais utilizados
+
+        - Redis
+        - DynamoDB
+
+      - Redis
+
+        - Características
+
+          - Alto desempenho
+          - Estrutura de dados na memória
+          - Versatilidade de uso
+          - Replicação e persistencia
+
+        - Sandbox
+
+          - try.redis.io
+
+        - Atribuir valor a chave
+
+          ```
+          SET user1:name 'Bob Esponja'
+          ```
+
+        - Consultar valor da chave
+
+          ```
+          GET user1:name
+          ```
+
+        - Atribuir JSON a chave
+
+          ```
+          SET user '{"name": "Patrick", "age": 31}'
+          ```
+
+        - Definir tempo de expiração dos dados (ex - segundos, px-milisegundos)
+
+          ```
+          SET user2:name "Lula Molusco" EX 10
+          ```
+
+        - Verificar se a chave existe
+
+          ```
+          EXISTS user1:name
+          ```
+
+        - Inserir uma lista a uma chave
+
+          ```
+          LPUSH user1: hobbies "Caçar agua viva"
+          ```
+
+        - Consultar valor de uma lista com base no index
+
+          ```
+          LINDEX user1:hobbies 0
+          ```
+
+        - Consultar todos os valores da lista
+
+          ```
+          LRANGE user1:hobbies 0 1
+          ```
+
+        - Consultar o tipo de valor de uma chave
+
+          ```
+          TYPE user1:name
+          ```
+
+        - Consultar o tempo de expiração da chave
+
+          ```
+          TTL user1:name - retorna em segundos
+          PTTL user1:name - retorna em milisegundos
+          ```
+
+        - Remover o tempo de expiração
+
+          ```
+          PERSIST user2:name
+          ```
+
+        - Remoção da chave
+
+          ```
+          DEL user2:name
+          ```
+
+          
 
     - Wide-Column Store
 
