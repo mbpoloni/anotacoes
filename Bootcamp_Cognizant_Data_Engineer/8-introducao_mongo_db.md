@@ -65,6 +65,129 @@
           | ---------------------- | ---------------------------------------------- |
           | Grande volume de dados | Necessidade de relacionamentos/joins           |
           | Dados não estruturados | Propriedades ACID e transações são importantes |
+          
+        - Client Mongo
+
+          - robomongo.org
+
+        - Mongo DBCloud
+
+          - mongodb.com
+          - Liberar o IP para acesso ao cluster
+          - Criar usuário para acesso
+
+        - Mongo DB Compass
+
+          - Client de acesso ao cluster
+
+        - Schema Design
+
+          - Relações
+
+            - Embedding
+
+              - Documentos autocontidos - todos os dados estão dentro dele
+
+                | Prós                                      | Contras                        |
+                | ----------------------------------------- | ------------------------------ |
+                | Consulta informações em uma unica query   | Limite de 16 MB por documentos |
+                | Atualiza o registro em uma única operação |                                |
+
+                
+
+            - Referência
+
+              - Documentos com dependência de outros documentos ou collections
+
+                | Prós                                                         | Contras                                       |
+                | ------------------------------------------------------------ | --------------------------------------------- |
+                | Documentos pequenos                                          | Duas ou mais queries ou utilização do $lookup |
+                | Não duplica informação                                       |                                               |
+                | Usado quando os dados não são acessados em todas as consultas |                                               |
+
+            - Recomendação de relacionamentos
+
+              - One-to-one
+
+                - prefira atributos chave-valor no documento
+
+                  ```
+                  {
+                  	"_id": IbjectID("jsdhksdjahfsdkajgkfg"),
+                  	"name": "Patrick,
+                  	"steet": "Av das aguas",
+                  	"numver": 102
+                  }
+                  ```
+
+              - One-to-few ou one-to-many
+
+                - preferivel embedding
+
+                  ```
+                  {
+                  	"_id": ObjectId("sdlfhslkdjfsadkfjl"),
+                  	"name": "Patrick",
+                  	"adresses": [
+                      	{"street": "Av das aguas", "number": 102},
+                      	{"street": "Ruas vivas", "number": 100}
+                  		]
+                  }
+                  ```
+
+              - One-to-many ou Many-to-many
+
+                - preferivel referencia
+
+                  ```
+                  {
+                  	"_id": ObjetcId("dskajfhdskjfhs"),
+                  	"name": "Patrick",
+                  	"adresses": [
+                  		ObjectId("123"), ObjectId("1234")
+                  		]		
+                  }
+                  
+                  /** Address*/
+                  {
+                  	"_id": ObjectId("123"),
+                  	"street": "Av das aguas",
+                  	"number": 102
+                  }
+                  ```
+
+        - Boas práticas
+
+          - Evitar documentos muito grandes
+          - Usar campos objetivos e curtos
+          - Analisar as queries utilizando explain()
+          - Atualizar apenas campos alterados
+          - Evite negações em queries
+          - Listas/Arrays dentro dos documentos não podem crescer sem limite
+
+        - JSON vs BSON
+
+          - BSON
+            - Serialização codificada em binário de documentos semelhantes a JSON
+            - Contem extensões que permitem a representação de tipos de dados que não fazem parte da especificação JSON. Por exemplo, BSON tem um tipo de Date, ObjectID
+
+        - Prática
+
+          - listar os databases
+
+            ```
+            show databases
+            ```
+
+          - criar database - não possui comando especifico
+
+            ```
+            use nome_do_database
+            ```
+
+          - criar collections
+
+            - pode ser criada da forma explicita e implicita
 
     - Key-Value Store
 
@@ -306,10 +429,44 @@
           MATCH (bob_esponja) RETURN bob_esponja;
           ```
 
-          
+    - DOCKER
 
-      
+      - Docker compose - contem as instruções para a criação dos containers
 
-      
+        ```
+        version: '3.8'
+        
+        services: 
+        		db:
+        			image:mongo
+        			container_name: db
+        			restart: always
+        			environment:
+        				-MONGO_INITDB_ROOT_USERNAME=dio
+        				-MONGO_INITDB_ROOT_PASSWORD=dio
+                    ports:
+                    	-"27017:27017"
+                   	volumes:
+                   		-/User/...:/data/db -(local dos dados no container)
+                   		
+        ```
+
+      - subir
+
+        ```
+        docker-compose up -d
+        ```
+
+      - verificar se o container subiu
+
+        ```
+        docker container ps
+        ```
+
+        
+
+    
+
+    
 
     
