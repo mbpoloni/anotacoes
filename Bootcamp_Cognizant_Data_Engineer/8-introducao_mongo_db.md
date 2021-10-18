@@ -296,6 +296,54 @@
             ```
             db.getCollection('nome_collection').createIndex({name: 1}, {"name": "idx_name"}
             ```
+          
+        - Agregações
+
+          - Procedimento de processar dados em uma ou mais etapas, onde o resultado de cada etapa é utilizado na etapa seguinte, de modo a retonar um resultado combinado
+
+          - Agregação pipeline
+
+            - Mais básicos fornecem "filtros" e "operadores"
+
+              - Operadores: $group, $addFields
+
+                ```
+                --retorna a soma agregada de valores no campo cuisine 
+                db.getCollection('nome_collection').aggregate([{$group: {_id:"$cuisine", total:{$sum: 1}}}])
+                
+                -- $addFields adiciona campos no resultado da agregação
+                ```
+
+                - Funções agregação $sum, $avg, $max, $min
+
+                - Operadores lógicos $and, $or, $not, $nor
+
+                  ```
+                  --retorna os valores conforme o filtro definido 
+                  	--cozinha americana que ficam no Brooklyn
+                  db.getColectio('restaurants').aggregate([{$match : {$and: [{cuisine: "American"}, {borough: "Brooklyn"}]}}])
+                  ```
+
+                - Operadores de comparação:
+
+                  - Maior que $gt
+                  - Menor que $lt
+                  - Diferente de $nte
+                  - Igual $eq
+                  - Menor ou igual $lte
+                  - Maior ou igual $gte
+
+          - Agregação de propósito único
+
+            - count
+
+            - distinct
+
+              ```
+              db.getCollection('nome_collection').distinct(nome_campo)
+              ```
+
+              
 
   - Key-Value Store
 
