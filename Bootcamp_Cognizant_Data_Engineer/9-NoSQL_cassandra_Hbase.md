@@ -19,3 +19,18 @@
 | Consulta de dados é simples e tende a ser simples            | Consulta e relatórios complexos                              |
 | Dados exigem uma ampla distribuição geográfica               | Usuários são mais centralizados                              |
 
+- Teorema de CAP
+  - Ou Teorema de Brewer
+  - Indica que o armazenamento de dados distribuidos só podem atender dois dos três atributos
+    - Consistencia
+    - Disponibilidade
+    - Partição Tolerante a falhas
+  - Por quê NoSQL no Big Data?
+    - Pela melhor performance nas queries em grande volume de conjunto de dados (dataset)
+    - Não é necessário analisar todo o conjunto de dados para fazer operações
+- HBase
+  - NoSQL distribuido e orientado a colunas (Column Familily ou Wide Column)
+  - O armazenamento do Hbase é um esparso, distribuído, persistente, multidimensional e ordenado Map.
+  - Desvantagens
+    - Não ter uma linguagem própria de SQL
+    - Não suportar indices em colunas fora do 
