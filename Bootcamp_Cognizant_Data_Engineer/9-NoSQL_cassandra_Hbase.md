@@ -28,9 +28,96 @@
   - Por quê NoSQL no Big Data?
     - Pela melhor performance nas queries em grande volume de conjunto de dados (dataset)
     - Não é necessário analisar todo o conjunto de dados para fazer operações
+  
 - HBase
   - NoSQL distribuido e orientado a colunas (Column Familily ou Wide Column)
+
   - O armazenamento do Hbase é um esparso, distribuído, persistente, multidimensional e ordenado Map.
+
+    - MAP: Tem chave e valor
+
   - Desvantagens
     - Não ter uma linguagem própria de SQL
     - Não suportar indices em colunas fora do 
+    
+  - Maior vantagem é a facilidade e integração com o ecossistemas Hadoop
+
+  - Map
+
+    - é indexado por uma linha chave (row key), coluna chave(column key), e uma coluna timestamp
+
+    - Cada valo no Map é interpretado como um vetor de bytes (array of bytes)
+
+    - O array of bytes nos permite gravar portanto qualquer informação se for necessário, inclusive documentos, arquivos, JSON, csv
+
+    - Núcleo de dados do Hbase é um map
+
+      ```
+      {
+      	"zzzzz": "Olá",
+      	"xyz": "hello",
+      	"aaaa": "world Hbase",
+      	"1": "x",
+      	"aaaa": "y"
+      }
+      ```
+
+    - Multidimensional e ordenado
+
+      - Criar listas dentro de listas
+
+      ```
+      {
+      	--Row key--
+      	"1": {
+      		--columns family
+      		"A": --valores "y",
+              "B": --valores "w"
+      	}
+      }
+      ```
+
+  - Arquitetura Hbase
+
+    ​	![image-20211021190038442](https://github.com/mbpoloni/anotacoes_aula/blob/master/img/image-20211021190038442.png)
+
+    - Client
+      - Responsavel por encontrar o Region Servers que estão atendendo as linhas em particular que estão sendo utilizadas, para isso é conslutado uma base de dados de matedados interna do Hbase, hbase:meta, que fica no Zookeeper
+    - Zookeeper
+      - Faz os nós conversarem entre si
+      - É reponsavel por dar visibilidade a todos os nós de serviços do Hbase de que é o master atual, são servidores que atendem ao papel RegionServers, Region
+    - HMaster
+      - Responsavel por monitorar todas as instancias de RegionServer no cluster
+      - É meio para todas as solicitações de mudanças de metadados
+      - Recebe a requisião do cliente e verificar nos Region server qual contem a tabela
+    - Region server
+      - Quem faz a consulta no HDFS
+        - Region - Representam os elementos básicos de disponibilidade e distribuição das tabelas e incluem o armazenamento de cada column family
+    - HDFS
+      - Responsável por fazer todas replicações
+      - É o sistema de arquivos do ecossistema Hadoop
+      - Cada arquivo está armazenado em múltiplos blocos e mantem tolerancias a falhas, os blocos são replicados pelo cluster Hadoop
+
+- Cassandra
+
+  - Banco de dados distribuido e orientado a colunas
+  - Os dados armazenado são tipados e há conceitos mais complexos de modelagem como chave primário composta, partition key e cluster key
+  - Possui linguagem CQL
+  - Grande diferença para o Hbase
+    - o Cassandra suporta tabela secundário de indices e permite filtros em colunas fora da primary key
+  - Característica principal é armazenar em múltiplos nós sem nenhum ponto de falha
+  - Conexão entre os nós é realizada de ponto a ponta, utilizando um protocolo chamado Gossip
+  - Todos os nós sabem de todos nós
+  - Componentens do cassandra
+    - Node
+      - Nó responsavel por armazenar os dados, é um componente básico da Arquitetura
+    - Data Center
+      - Representa uma coleção de nós
+    - Cluster
+      - Representa a coleção de vários Data Centers
+    - Commit Log
+      - Cada operação é escrita no log de commit. Esse logo é utilizado para recuperação em caso de incidentes graves
+    - Mem-table
+      - Depois que o dado é escrito no log de commit, o dado é escrito no Mem-table. O dado nessa localidade é temporário.
+    - SStabte
+      - Quando o Mem-table atingiu o limite, o dado é gravado no SStable
