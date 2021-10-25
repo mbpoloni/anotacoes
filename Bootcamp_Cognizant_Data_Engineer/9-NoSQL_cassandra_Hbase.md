@@ -121,3 +121,96 @@
       - Depois que o dado é escrito no log de commit, o dado é escrito no Mem-table. O dado nessa localidade é temporário.
     - SStabte
       - Quando o Mem-table atingiu o limite, o dado é gravado no SStable
+
+### Comandos gerais
+
+- ```
+  hbase shell
+  ```
+
+  - Chama o console do Hbase
+
+- ```
+  status
+  ```
+
+  - Trás o detalhamento dos servidores presentes
+
+- ```
+  version
+  ```
+
+  - Versão do Hbase
+
+- ```
+  table_help
+  ```
+
+  - Auxilia como utilizar comando que se referenciam a uma tabela
+
+- Tabelas ou não podem estar no schema
+
+- Não é possivel alterar um column family se a tabela estiver ativada
+
+- Arquitetura voltada a eventos
+
+  - Bancos noSQL com o objetivo de ser temporarios
+  - Colunas com propriedades TTL
+
+- Qualquer alteração de schema da tabela é necessário desabilita-la antes, para manter a consistencia nos dados
+
+- ```
+  create 'funcionario', 'pessoais', 'profissionais'
+  ```
+
+| funcionario | pessoais | profissionais |
+| ----------- | -------- | ------------- |
+
+- ```
+  put 'funcionario', '1', 'pessoais:nome', 'Maria'
+  ```
+
+  ​	Insere um registro
+
+- ```
+  scan 'funcionario'
+  ```
+
+  ​	Retorna os valores da tabela
+
+- ```
+  enable 'funcionario'
+  ```
+
+  ​	Habilita a tabela
+
+- ```
+  disable 'funcionario'
+  ```
+
+  ​	Desabilita a tabela
+
+- ```
+  alter 'funcionario', NAME=>'hobby', VERSIONS => 5
+  ```
+
+  ​	Altera a tabela funcionario, incluido uma Column chamada hobby
+
+- ```
+  scan 'funcionario', {VERSIONS=>3}
+  ```
+
+  ​	Demonstra os registros de versão anterior
+
+- ```
+  count 'funcionario'
+  ```
+
+  ​	Retorna a quantidade de rowkeys
+
+- ```
+  create 'ttl_exemplo', {'NAME'=>'cf', 'TTL'=>20}
+  ```
+
+  ​	Criar uma tabela temporario com nome cf e tempo de 20 segundos
+
