@@ -222,7 +222,7 @@
 
 - Cenários de utilização
 
-  - ![image-20211025190628032](C:\Users\Micael\AppData\Roaming\Typora\typora-user-images\image-20211025190628032.png)
-  - ![image-20211025190640568](C:\Users\Micael\AppData\Roaming\Typora\typora-user-images\image-20211025190640568.png)
-  - ![image-20211025190824444](C:\Users\Micael\AppData\Roaming\Typora\typora-user-images\image-20211025190824444.png)
+  - ![image-20211025190628032](https://github.com/mbpoloni/anotacoes_aula/blob/master/img/image-20211025190628032.png)
+  - ![image-20211025190640568](https://github.com/mbpoloni/anotacoes_aula/blob/master/img/image-20211025190640568.png)
+  - ![image-20211025190824444](https://github.com/mbpoloni/anotacoes_aula/blob/master/img/image-20211025190824444.png)
 
