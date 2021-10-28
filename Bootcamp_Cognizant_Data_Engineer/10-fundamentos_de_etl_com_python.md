@@ -36,5 +36,31 @@
 - Origem dos dados
   - Modelo de dados
     - Contem informações como os dados estao relacionados
-- 
+
+### Desenvolvimento do projeto ETL - Extração e validação
+
+- ```
+  import pandas as pd
+  ```
+
+  importa a biblioteca e atribui um alias
+
+- ```
+  df = pd.read_csv("caminho_arquivo", sep=";", parse_dates=["nome_coluna"])
+  df
+  ```
+
+  atribui o objeto do caminho especificado a df, identifica que a separação dos dados é realizada por ";", converte a coluna "nome_coluna" para data  e imprimi
+
+- ```
+  df.dtypes
+  ```
+
+  exibe o tipo de cada coluna do data frame
+
+- ```
+  df.coluna_data.dt.month
+  ```
+
+  exibe o mes da data
 
