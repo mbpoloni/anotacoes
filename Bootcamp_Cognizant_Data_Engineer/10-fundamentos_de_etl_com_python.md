@@ -46,11 +46,11 @@
   importa a biblioteca e atribui um alias
 
 - ```
-  df = pd.read_csv("caminho_arquivo", sep=";", parse_dates=["nome_coluna"])
+  df = pd.read_csv("caminho_arquivo", sep=";", parse_dates=["nome_coluna"], dayfirst=True)
   df
   ```
 
-  atribui o objeto do caminho especificado a df, identifica que a separação dos dados é realizada por ";", converte a coluna "nome_coluna" para data  e imprimi
+  atribui o objeto do caminho especificado a df, identifica que a separação dos dados é realizada por ";", converte a coluna "nome_coluna" para data colocando a o dia como inicio da data  e imprimi
 
 - ```
   df.dtypes
@@ -63,4 +63,73 @@
   ```
 
   exibe o mes da data
+  
+- valores vazios
 
+  - Campo texto = retorna NaN
+  - Campo data = retorna NaT
+
+- pandera
+
+  - biblioteca para validação
+
+    ```
+    schema = pa.DataFrameSchema(
+    	columns = {
+    	"nome_coluna": pa.Column(pa.DateTime, nullable=True)
+    	}
+    )
+    ```
+
+    cria um esquema para validação da coluna tipo Datetime
+
+    ```
+    schema.validate(df)
+    ```
+
+    faz a validação do esquema no dataframe df
+
+    ```
+    pa.Check.str_matches(r'^([0-1]?[0-9]|[2][0-3]):([0-5][0-9](:[0-5][0-9])?$'))
+    ```
+
+    faz a checagem de hora 
+
+    ```
+    pa.Check.str_length(2,2)
+    ```
+
+    faz a checagem da quantidade de dígitos
+
+    ```
+    pa.Column(pa.Int, required=False)
+    ```
+
+    habilita que o esquema valide mesmo não tendo a coluna presente
+
+### Desenvolvimento do projeto ETL - Limpeza
+
+```
+df.loc[linha, coluna]
+df.loc[1,'ocorrencia_cidade']
+```
+
+exibe o valor presente na célula da linha 1 e coluna ocorrencia_cidade
+
+```
+df.loc[1:3]
+```
+
+exibe os valores das linhas 1 até 3
+
+```
+df.loc[[10,40]]
+```
+
+exibe os valores das linhas 10 e 40
+
+```
+df.loc[:, 'nome_coluna']
+```
+
+exibe todas as linhas da coluna
