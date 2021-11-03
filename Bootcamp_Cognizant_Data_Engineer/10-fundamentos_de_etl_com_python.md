@@ -133,3 +133,112 @@ df.loc[:, 'nome_coluna']
 ```
 
 exibe todas as linhas da coluna
+
+```
+df.nome_coluna.is_unique
+```
+
+verifica se os valores da coluna são unicos
+
+```
+df.set_index('nome_coluna', inplace=True)
+```
+
+define os valores da coluna como index
+
+```
+df.reset_index(drop=True, inplace=True)
+```
+
+reseta os valores de index
+
+```
+def.loc[0,nome_coluna] = ''
+```
+
+substitui o valor da celula na linha 0 da coluna especificada para ''
+
+```
+df.loc[:, nome_coluna] = ''
+```
+
+substitui todos os valores da coluna para ''
+
+```
+df['nome_coluna_nova'] = df.nome_coluna
+```
+
+copia uma nova coluna com os valores da coluna
+
+```
+df.loc[df.ocorrencia == 'SP', ['ocorrencia_classificacao']] = 'GRAVE'
+```
+
+altera o valor para grave na coluna 'ocorrencia_classificacao' one a ocorrencia for igual a SP
+
+```
+df.loc[df.ocorrencia_aerodromo == '****', ['ocorrencia_aerodromo']] = pd.NA
+```
+
+substitui os valores **** da coluna ocorrencia_aerodromo para NA
+
+```
+df.replace(['**','##!','####','****','*****','NULL'], pd.NA, inplace=True)
+```
+
+substitui por NA
+
+```
+df.isna() ou df.isnull()
+```
+
+exibe os valores que estão NA
+
+```
+df.isna().sum()
+```
+
+exibe a soma dos valores NA por coluna
+
+```
+df.fillna(0, inplace=True)
+```
+
+substitui os valores nulos por zero
+
+```
+df.fillna(value={'total_recomendacoes':10}, inplece=True)
+```
+
+substitui os valores NA da coluna total_recomendacoes por 10
+
+```
+df.drop(['nome_coluna'], axis=1, inplace=True)
+```
+
+elimina a coluna
+
+```
+df.dropna()
+```
+
+elimina as linhas que possuem valores NA
+
+```
+df.dropna(subset=['nome_coluna'])
+```
+
+elimina a linha que conter NA na coluna especifica
+
+```
+df.drop_duplicates(inplace=True)
+```
+
+elimina linhas duplicadas
+
+missing values - valores não informados
+
+​	Pode ser tratado pelo NA do pandas, ou NaN do Numpy
+
+outlier - extrapolou o valor normal
+
