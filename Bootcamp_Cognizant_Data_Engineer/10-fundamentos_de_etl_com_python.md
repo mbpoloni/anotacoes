@@ -269,3 +269,124 @@ df.iloc[-1]
 
 retorna os valores da ultima linha do dataframe
 
+```
+df['nome_coluna']
+```
+
+buscar dados referenciando a coluna
+
+```
+df.loc[nome_coluna.isnull()]
+```
+
+exibir os valores nulos de uma coluna
+
+```
+df.count()
+```
+
+exibe a quantidade de valores das colunas, não é contado valores não informados
+
+```
+filtro = df.nome_coluna > 10
+df.loc[filtro]
+```
+
+exibe os valores que satisfaz o filtro
+
+```
+filtro = df.nome_coluna > 10
+filtro2 = df.nome_coluna2 = 'RS'
+df.loc[filtro & filtro 2]
+```
+
+exibe os valores que satisfaz os dois filtros (e)
+
+```
+filtro = df.nome_coluna > 10
+filtro2 = df.nome_coluna2 = 'RS'
+df.loc[filtro | filtro 2]
+```
+
+exibe os valores que satisfaz os dois filtros (ou)
+
+```
+filtro = df.nome_coluna > 10
+filtro2 = df.nome_coluna2.isin(['RS','PR'])
+df.loc[filtro & filtro 2]
+```
+
+exibe os valores que satisfaz os dois filtros (ou)
+
+```
+filtro = df.nome_coluna.str[0] == 'C'
+df.loc[filtro]
+```
+
+exibe os valores que começam com a letra c na coluna especificada
+
+```
+filtro = df.nome_coluna.str[-2:] == 'MA'
+df.loc[filtro]
+```
+
+exibe os valores que terminam com MA na coluna especificada
+
+```
+filtro = df.nome_coluna.contains('MA')
+df.loc[filtro]
+```
+
+exibe os valores que contem MA em qualquer parte na coluna especificada
+
+```
+filtro = df.nome_coluna.dt.year == 2015
+df.loc[filtro]
+```
+
+exibe as ocorrencia do ano 2015
+
+```
+filtro1 = df.nome_coluna.dt.year == 2015
+filtro2 = df.nome_coluna.dt.month == 12
+filtro3 = (df.nome_coluna.dt.day > 2) & (df.nome_coluna.dt.day < 9)
+df.loc[filtro1 & filtro2 & filtro3]
+```
+
+exibe as ocorrencia do ano 2015, do mes 12 entre os dias 3 e 8
+
+```
+df['nome_coluna'] = pd.to_datetime(df.ocorrencia_dia.astype(str) + ' ' + df.ocorrencia_hora)
+```
+
+cria uma nova coluna do tipo data, concatenando a coluna data transformada em texto e a coluna hora
+
+```
+dfnovo = df.loc[filtro1 & filtro2 & filtro3]
+```
+
+atribui o resultado dos filtros em um novo dataframe
+
+```
+df.groupby(['nome_coluna']).size()
+```
+
+retorna o numero de linhas conforme o agrupamento do dos valores do nome da coluna
+
+### Considerações
+
+Para saber mais
+
+- Leitura de arquivo csv
+  - https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html
+- Validação: Pandera
+  - https://pandera.readthedocs.io/en/stable
+- Limpeza: Valores ausentes
+  - https://pandas.pydata.org/pandas-docs/stable/user_guide/missign_data.html
+- Transformação: Variações de filtros (tempo execução)
+  - https://medium.com/data-hackers/a-maneira-eficiente-de-filtrar-um-data-frame-pandas-4158a4e37c1
+
+- Slides
+  - https://drive.google.com/drive/folders/1ldrsSLnFUG0Cf2JLYsI1IHn5gU5MxrJw?usp=sharing
+- 
+
