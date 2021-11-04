@@ -242,3 +242,30 @@ missing values - valores não informados
 
 outlier - extrapolou o valor normal
 
+### Desenvolvimento do projeto ETL - Transformação
+
+```
+valores_ausentes = ['..', '.']
+na_values = valores_ausentes
+```
+
+parametro de read para subustituir valores ausentes 
+
+```
+nullable=True
+```
+
+permite valores nulos no esquema de validação
+
+```
+df.iloc[1]
+```
+
+procura o valore pelo indice
+
+```
+df.iloc[-1]
+```
+
+retorna os valores da ultima linha do dataframe
+
