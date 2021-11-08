@@ -9,7 +9,7 @@
   - Onde há um registro feito, a tecnologia o alcança
   - Ordem de Petabytes
 
-- ![image-20211108110707343](C:\Users\micaelpo\AppData\Roaming\Typora\typora-user-images\image-20211108110707343.png)
+- ![image-20211108110707343](https://github.com/mbpoloni/anotacoes_aula/blob/master/img/image-20211108110707343.png)
 
 - Escalabilidade vertical
 
