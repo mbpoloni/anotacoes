@@ -136,5 +136,47 @@
       https://drive.google.com/file/d/1CsHc311jp4EuZ8be5KGaumniGAafa8sC/view?usp=sharing
       ```
 
-      
+  - YARN
+  
+    - Yet Another Resource Negotiatior
+  
+    - Gerenciamento de recusos
+  
+    - Gerenciamento e monitoramento de jobs
+  
+    - Recursos dos nós são alocados somente quando requisitado(via container)
+  
+    - Componentes
+  
+      - Application
+        - um job subetido ao Hadoop
+      - Application Master
+        - gerencia a execução e o escalonamento das tarefas (1 por aplicação)
+      - Container
+        - unidade de alocação de recursos (ex: c1=1 Gb RAM, 2CPU)
+      - Resource Manager
+        - gerenciador global de recursos
+      - Node Manager
+        - gerencia o ciclo de vida e monitora os recursos do Container
+  
+    - Olhar log
+  
+      - ```
+        sudo -u hdfs yarn logs -applicationId
+        application_1611089476809_0001 | more
+        ```
+  
+    - Gravar log em um arquivo local
+  
+      - ```
+        sudo -u hdfs yarn logs -applicationId application_1611089476809_0001 > wordcount.log
+        ```
+  
+- Caminho apresentação
+
+  - ```
+    https://drive.google.com/file/d/1mSzcFASKCTir5ecdRNA7hHb7DoVfOMM0/view
+    ```
+
+    
 
