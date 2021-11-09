@@ -94,5 +94,68 @@
     - Vários pontos de integração com AWS
     - HDFS
 
+- AWS Glue
+  - Serviço de integração de dados sem servidor
+  - AWS DataBrew
+    - ferramenta visual para enriquecer, limpar e normalizar os dados sem escrever código
+  - AWS Flue Elastic Views
+    - permite utilizar SQL para combinar e replicar os dados em diferentes armazenamento de dados
+  - Glue Crawler verifica dados em S3 e cria esquemas
+    - Pode ser executado periodicamente
+    - Preenche o catalogo de dados do glue
+    - Armazena apenas a definição da tabela
+    - Os dados originais permaecem no S3
+  - Dados não estruturados são tratados como estruturados
+    - Redshift Spectrum
+    - Athena
+    - EMR
+    - Quicksight
+- AWS Redshift
+  - Serviço de armazenamento de dados gerenciado em escala de petabytes
+  - desempenho 10 x melhor do que outro DW
+  - projetado para OLAP (Online analytical processing), não OLTP(Online transaction processing)
+  - economico
+  - interfaces SQL, ODBC, JDBC
+  - escala sob demanda
+  - replicação e backups integrados
+  - monitoramento via CloudWatch / CloudTrail
+  - Usos
+    - acelerar as cargas de trabalho de análise
+    - data warehouse e data lake unificados
+    - modernização do data warehouse
+    - analisar dados de vendas globais
+    - armazenar dados históricos do mercado de ações
+    - analisar impressoes de anuncios e cliques
+    - dados de jogos agregados
+    - analisar tendencias sociais
+
+### Mão á obra
+
+- Criando delivery stream
+
+  - Boa prática bucket não usar camelcase
+
+- Serviço de instancias EC2
+
+  - Conexão via Putty
+  - login padrão 
+    - ec2-user
+
+- JSON contendo os flows com as instruções
+
+- Github
+
+  - https://github.com/cassianobrexbit/dio-live-aws-bigdata-2
+
+- Slides
+
+  - https://drive.google.com/file/d/1JlfVVU1ee5f1COL9Fb2TH5_WWxzix0SU/view
+
+  
+
+
+
+
+
 
 
