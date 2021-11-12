@@ -1,0 +1,47 @@
+# Processando grandes conjuntos de dados de forma paralela e distribuída com Spark
+
+- Spark
+  - Framework analítico distribuído, capaz de realizar diversas operações de maneira extremamente rápida
+  - Framework in-memory, RAM é fundamental para o bom funcionamento
+  - Computação distribuída
+  - Permite usar diversas linguagens
+    - Scala
+    - Java
+    - Python
+    - R
+    - SQL
+  - 100x mais rápido que o mapreduce tradicional
+  - Arquitetura
+    - Drive Program (Máquina que esta gerindo os recursos do SPARK)
+      - Spark Context (Gerenciar o acesso aos arquivos, quebra em tasks)
+    - Cluster Manager (Gerenciador de recurso (YARN))
+    - Worker Node (Máquinas disponíveis para trabalhar)
+      - Executor (Agrupador de tasks, pode conversar com outro executor)
+        - Task
+      - Cache
+  - Bibliotecas
+    - Apache Spark Core
+      - Spark SQL
+        - Voltada para processamento de dados estruturados
+      - Spark Streaming
+        - Voltado para dados vindos do Kafta, microbytes
+      - MLlib
+        - Módulo para trabalhar com Machine Learning
+      - GraphX
+        - Voltada para trabalhar com gráficos
+  - RDD
+    - Resilient Distributed Dataset
+      - Principal abstração do Spark
+      - Coleção de elementos particionados entre os diversos nós de um cluster
+      - Resiliente a falhas
+      - Naturalmente distribuídos, podendo existir em diversos nós de um cluster
+      - Imutáveis
+  - Cluster mode
+    - O Spark distribuirá a carga entre diversas máquinas, nesse modo depende de gerenciadores de recursos
+      - Yarn
+      - Mesos
+      - EC2
+      - Kubernetes
+  - VM
+    - https://drive.google.com/file/d/1CsHc311jp4EuZ8be5KGaumniGAafa8sC/view?usp=sharing
+

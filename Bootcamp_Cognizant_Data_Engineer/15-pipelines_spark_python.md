@@ -10,3 +10,4 @@
   - Spark é rápido, eficiente e escalonável
     - Implementa uma estrutura distribuída e tolerante a falhas a memória chamada Resilient Distributed Dataset(RDD)
     - Maximiza o uso da memória em várias máquinas, melhorando o desempenho geral em ordens de magnitude. A reutilização dessas estruturas na memória pelo Spark o tona adequado para operações iterativas de aprendizado de máquina, bem como para consultas interativas
+
