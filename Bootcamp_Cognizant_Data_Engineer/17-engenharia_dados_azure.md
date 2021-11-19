@@ -1,0 +1,97 @@
+# Introdução a Engenharia de Dados na Azure
+
+- Engenharia de dados
+  - Ciência de dados
+    - Combina técnicas de ciência da computação com ferramentas estatísticas para analisar dados
+  - Cientista de dados
+    - Profissional especialista em analisar processos e volume de dados
+    - Responsável por extrair grandes volumes de dados
+  - Modelagem preditiva
+    - Utiliza modelos estatísticos para apontar como serão os dados no futuro, ou como se comportam em condições diversas
+  - Modelagem prescritiva
+    - Fornece subsídios para tomar decisões que irão alterar o futuro
+  - Engenheiro de dados
+    - Cuida de todo o fluxo de dados, desde a extração, passando pelo armazenamento, até servir os dados em qualquer formato
+  - Cientista de dados
+    - Modelagem preditiva e prescritiva, além de explorar fraquezas escondidas, tendências e oportunidades de um negocio
+  - Dados
+    - Coleções de fatos
+    - Estruturados, Não estruturados, 
+  - Sistema transacional
+    - Sistema de administra transações
+  - Sistema analítico
+    - Dar suporte a consulta de dados
+  - CSP
+    - Cloud Service Providers
+    - Principais players
+      - AWS
+      - Azure
+      - Google Cloud GCP
+      - Alibaba Cloud
+      - Oracle Cloud
+      - IBM Cloud
+  - Ingestão de dados
+    - Processo usado para carregar ou importar dados
+    - Precisa ser rápida o suficiente para capturar grandes quantias de dados
+    - Azure data factory
+    - Polybase
+    - SQL Server integration services
+    - Azure databricks
+  - Pipeline
+    - Agrupamento logico de atividades que juntas executam uma tarefa
+    - Definem as ações a serem executadas nos seus dados
+  - Fluxo de ingestão de dados
+    - Tansformações visualmente projetadas no data factory
+    - Ferramenta visual
+    - Azure data factory
+  - Armazenamento de dados
+    - Pode conter todos os dados disponíveis
+    - Redundância
+      - LRS - armazenamento com redundância local
+        - redundância simples e de baixo custo
+        - Os dados serão copiados tres vezes em uma localização fisica unica de maneira sincrona na região primaria
+      - ZRS - armazenamento com redundancia de zona
+        - redundância para cenários que exigem alta disponibilidade
+        - os dados serão copiados de maneira síncrona em três zonas de disponibilidade do Azure na região primária
+      - GRS - armazenamento com redundância geográfica
+        - redundância entre regiões para proteger contra interrupções regionais
+        - os dados são copiados de maneira síncrona três vezes na região primaria e copiados de maneira assíncrona para a região secundária
+      - GZRS - armazenamento com redundância de zona geográfica
+        - redundância para cenários que exigem alta disponibilidade e durabilidade máxima
+        - os dados são copiados de maneira síncrona em três zonas de disponibilidade do azure na região primaria e copiados de maneira assíncrona para a região secundaria
+  - Processamento de dados
+    - ETL
+    - Azure synapse analytics
+    - usa apache spark
+  - Transformação e preparação de dados
+    - Azure HDInsight
+    - Converter a estrutura ou o formato dos seus dados em outro formato ou estrutura em que seja possível analisa-los
+  - Preparação de dados
+    - Converte dados brutos e desorganizados em uma visualização limpa e consistente para análise
+    - Processo inclui procura, limpeza, transformação e organização
+  - Processamento de dados
+    - Ingestão
+      - adquirir os dados de origem
+      - Azure data factory
+    - Armazenar
+      - identifica o local em que os dados ingeridos deve ser alocados
+      - Azure data lake storage
+    - Preparar e treinar
+      - identifica as tecnologias que são usadas para executar a preparação de dados e o treinamento de modelo
+      - Azure databricks
+    - Modelar e fornecer
+      - envolve as tecnologias que apresentarão os dados aos usuários
+      - azure synapse analytics
+  - HDInsight
+    - serviço de análise totalmente gerenciado, completo e open-source na nuvem
+    - sistema de processamento de dados distribuido na nuvem altamente disponivel e seguro por padrão
+    - no cerne está o Apache Hadoop
+  - Azure stream analytics
+    - mecanismo de processamento de eventos complexos e análise em tempo real desenvolvido para analisar e processar simultaneamente altos volumes de dados de streaming rápido a partir de várias fontes
+    - consiste em uma entrada, uma consulta e uma saída
+    - Tipos de trabalho
+      - Analisar streams em tempo real de dispositivos IoT
+      - Analise de sequencia de cliques
+      - Análise geoespacial para gerenciamento de frotas e veículos sem motoristas
+    - 
+
