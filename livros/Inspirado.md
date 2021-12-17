@@ -94,5 +94,52 @@
   3. **Finalmente, a questão tem a ver com a solução de problemas, não implementação de funcionalidades**
      - Fortes equipes sabem que devem garantir que a solução resolva o problema subjacente, é tudo uma questão de resultados de negócio
 
+### Cap 8. - Conceitos-Chave
+
+- Conceito de produto
+  - Funcionalidades
+  - Tecnologia que possibilita a funcionalidade
+  - Design de experiência do usuário que apresenta a funcionalidade
+  - Como é monetizada a funcionalidade
+  - Como é atraído e adquirido usuários e clientes
+- Ter uma definição muito inclusiva e holística do produto
+- Existem duas atividades de alto nível essenciais em todas as equipes de produtos
+  - Precisamos **descobrir** o produto a ser desenvolvido e **entregá-lo** ao mercado
+  - Trabalhar paralelamente em descobrir qual produto é necessário desenvolver com entregar o produto com qualidade em produção
+
+Fluxo
+
+- Conceitos principais
+
+  - Objetivos
+
+    - Descoberta
+
+    - Entrega
+
+- Descoberta de produtos
+  - É abordado vários riscos antes mesmo de escrever uma unica linha do software
+  - Tem o propósito de separar rapidamente boas ideias das ruins e ter um backlog do produto validado
+  - Deve-se obter resposta a quatro perguntas
+    1. O usuário comprará isso?
+    2. O usuário consegue entender como se usa isso?
+    3. Nossos engenheiros conseguem desenvolver isso?
+    4. Nossos stakeholders dão suporte para isso?
+  - Protótipos
+    - Utilização de protótipos para ter experimentos das ideias de forma rápida e econômica e ter rapidamente a evidência de que vale a pena desenvolver o produto ou a funcionalidade
+      - Isso significa que escalabilidade, performance, confiabilidade, tolerância a falhas, segurança, privacidade, internacionalização e localização necessários foram realizados e o produto funcionou como esperado
+    - Exigem no mínimo uma ordem de grandeza de menos tempo e esforço do que para desenvolver um produto
+    - Fortes equipes testa várias ideias de produto a cada semana, na ordem de 10 a 20 ou mais
+- Entrega de produtos
+  - Tem o propósito de entregar produtos de tecnologia em qualidade em produção, algo que possa vender e fazer um negócio funcionar
+- Encaixe produto/mercado
+  - Menor produto real possível que atende às necessidades de um mercado específico de clientes
+  - Visão de produto
+    - Objetivo de longo prazo deste produto, normalmente de 2 a 10 anos
+    - Produto é lançado na esperança de alcançar o encaixe produto/mercado, que é um passo essencial no caminho para cumprir a visão de produto da empresa
+  - MVP Produto minimo víável
+    - MVP deve ser um protótipo, não um produto, pois para desenvolver um produto de qualidade final leva a um considerável desperdício de tempo e recursos.
+    - 63
+
 
 
